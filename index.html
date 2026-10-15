@@ -15,9 +15,11 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="room.css">
   <link rel="stylesheet" href="redesign.css">
+  <link rel="stylesheet" href="references.css">
   <script src="scenes.js" defer></script>
   <script src="app.js" defer></script>
-  <script src="gallery.js" defer></script>
+  <script src="references-data.js" defer></script>
+  <script src="references.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Přeskočit na obsah</a>
@@ -110,17 +112,29 @@
       </div>
     </section>
 
-    <section class="gallery section" id="ukazky" aria-labelledby="gallery-title">
-      <div class="container"><div class="section-heading"><div><p class="eyebrow">Ukázka proměny</p><h2 id="gallery-title">Od stavby k interiéru</h2></div><p>Tyto fotografie jsou ilustrační. Snímky skutečných realizací doplníme, až budou k dispozici.</p></div>
-        <div class="gallery-grid" aria-label="Ilustrační fotografie rekonstrukce">
-          <button class="gallery-card" type="button" data-photo="0" aria-label="Otevřít ilustrační fotografii: Výchozí prostor"><span class="gallery-image photo-start"></span><span class="gallery-caption">Výchozí prostor <small>Ilustrační fotografie</small></span></button>
-          <button class="gallery-card" type="button" data-photo="1" aria-label="Otevřít ilustrační fotografii: Příprava povrchů"><span class="gallery-image photo-process"></span><span class="gallery-caption">Příprava povrchů <small>Ilustrační fotografie</small></span></button>
-          <button class="gallery-card" type="button" data-photo="2" aria-label="Otevřít ilustrační fotografii: Hotová koupelna"><span class="gallery-image photo-bathroom"></span><span class="gallery-caption">Hotová koupelna <small>Ilustrační fotografie</small></span></button>
-          <button class="gallery-card" type="button" data-photo="3" aria-label="Otevřít ilustrační fotografii: Hotový interiér"><span class="gallery-image photo-finished"></span><span class="gallery-caption">Hotový interiér <small>Ilustrační fotografie</small></span></button>
+    <section class="references section" id="ukazky" aria-labelledby="references-title">
+      <div class="container">
+        <div class="section-heading references-heading"><div><p class="eyebrow">Reference · ukázkový režim</p><h2 id="references-title">Ukázka galerie <span class="reference-title-break">před a po</span></h2></div><p>Podívejte se, jak se může prostor změnit od původního stavu po dokončení. Posuvník umožňuje porovnat obě podoby.</p></div>
+        <p class="references-disclaimer">Fotografie v této sekci jsou demonstrační vizualizace, nikoli doložené realizace MAKA-STAV. Skutečné zakázky doplníme po dodání ověřených podkladů.</p>
+        <div class="references-carousel" aria-label="Demonstrační galerie před a po">
+          <button class="reference-peek reference-peek-prev" id="reference-peek-prev" type="button" aria-label="Předchozí ukázka"><span class="reference-peek-photo" aria-hidden="true"></span><span class="reference-peek-caption"></span></button>
+          <div class="reference-center">
+            <div class="comparison" id="reference-comparison" style="--split: 50%" role="group" aria-label="Porovnání před a po">
+              <div class="comparison-photo comparison-after" role="img" aria-label="Stav po úpravě"></div>
+              <div class="comparison-photo comparison-before" role="img" aria-label="Původní stav"></div>
+              <span class="comparison-tag comparison-tag-before">PŘED</span><span class="comparison-tag comparison-tag-after">PO</span>
+              <span class="comparison-divider" aria-hidden="true"><span class="comparison-handle">‹ ›</span></span>
+              <input class="comparison-range" id="comparison-range" type="range" min="0" max="100" step="1" value="50" aria-label="Poměr zobrazení před a po, vlevo před, vpravo po">
+            </div>
+            <p class="comparison-help">Táhněte posuvníkem, klepněte na fotografii nebo použijte klávesy šipek.</p>
+            <div class="reference-navigation"><span class="reference-count" id="reference-count" aria-live="polite">01 / 03</span><div class="reference-progress" id="reference-progress" aria-label="Aktivní ukázka"></div><div class="reference-arrows"><button id="reference-prev" type="button" aria-label="Předchozí ukázka">←</button><button id="reference-next" type="button" aria-label="Další ukázka">→</button></div></div>
+          </div>
+          <button class="reference-peek reference-peek-next" id="reference-peek-next" type="button" aria-label="Další ukázka"><span class="reference-peek-photo" aria-hidden="true"></span><span class="reference-peek-caption"></span></button>
         </div>
+        <div class="reference-info"><div class="reference-summary"><p class="reference-category" id="reference-category"></p><h3 id="reference-title" aria-live="polite"></h3><p class="reference-meta" id="reference-meta"></p><p class="reference-description" id="reference-description"></p><div class="reference-actions"><button class="button button-primary" id="reference-detail-open" type="button">Zobrazit celou ukázku <span aria-hidden="true">↗</span></button><a class="button button-secondary reference-inquiry" id="reference-inquiry" href="#poptavka">Chci podobnou rekonstrukci <span aria-hidden="true">→</span></a></div></div><div class="reference-work"><h4>Co může rekonstrukce zahrnovat</h4><ul id="reference-work-items"></ul></div></div>
       </div>
     </section>
-    <dialog class="gallery-dialog" id="gallery-dialog" aria-label="Detail ilustrační fotografie"><div class="gallery-dialog-inner"><button class="gallery-close" type="button" aria-label="Zavřít fotografii">×</button><div class="gallery-dialog-image photo-start" role="img" aria-label="Ilustrační fotografie"></div><div class="gallery-dialog-bar"><button class="gallery-prev" type="button" aria-label="Předchozí fotografie">←</button><div><strong id="gallery-dialog-title">Výchozí prostor</strong><span id="gallery-dialog-count">01 / 04 · Ilustrační fotografie</span></div><button class="gallery-next" type="button" aria-label="Další fotografie">→</button></div></div></dialog>
+    <dialog class="reference-dialog" id="reference-dialog" aria-labelledby="reference-dialog-title"><div class="reference-dialog-inner"><header class="reference-dialog-head"><div><p class="eyebrow">Demonstrační fotografie</p><h2 id="reference-dialog-title"></h2><p id="reference-dialog-description"></p></div><button class="reference-dialog-close" type="button" aria-label="Zavřít detail">×</button></header><div class="reference-dialog-photo" role="img" aria-label=""></div><div class="reference-dialog-nav"><button id="reference-dialog-prev" type="button" aria-label="Předchozí fotografie">←</button><span id="reference-dialog-count" aria-live="polite"></span><button id="reference-dialog-next" type="button" aria-label="Další fotografie">→</button></div><div class="reference-dialog-thumbs" id="reference-dialog-thumbs" aria-label="Fotografie této ukázky"></div></div></dialog>
 
     <section class="process section" id="postup" aria-labelledby="process-title"><div class="container"><div class="section-heading"><div><p class="eyebrow">Jak spolupráce probíhá</p><h2 id="process-title">Tři jednoduché kroky</h2></div><p>Od prvního kontaktu po zahájení prací budete vědět, co je další krok.</p></div><div class="process-grid"><article><span>01</span><h3>Ozvete se nám</h3><p>Popíšete, co plánujete rekonstruovat.</p></article><article><span>02</span><h3>Probereme rozsah prací</h3><p>Domluvíme podrobnosti a další postup.</p></article><article><span>03</span><h3>Pustíme se do realizace</h3><p>Po odsouhlasení rozsahu prací navážeme samotnou rekonstrukcí.</p></article></div><a class="button button-primary" href="#poptavka">Probrat váš projekt <span aria-hidden="true">↗</span></a></div></section>
 
