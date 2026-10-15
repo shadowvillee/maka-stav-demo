@@ -1,12 +1,10 @@
 (() => {
   const scenes = window.MAKA_SCENES || [];
-  const story = document.querySelector('.story');
   const room = document.querySelector('.room');
   const title = document.querySelector('#stage-title');
   const copy = document.querySelector('#stage-copy');
   const kicker = document.querySelector('#stage-kicker');
   const stageCount = document.querySelector('#stage-count');
-  const services = document.querySelector('#stage-services');
   const buttons = document.querySelector('#stage-buttons');
   const progress = document.querySelector('#stage-progress');
   const artwork = document.querySelector('#room-artwork');
@@ -31,9 +29,7 @@
   const nav = document.querySelector('.main-nav');
   const menuToggle = document.querySelector('.menu-toggle');
   const status = document.querySelector('#form-status');
-  let scrollTick = false;
-  let mobileStageIndex = null;
-  room.addEventListener('animationend', () => room.classList.remove('is-scanning'));
+  let activeStageIndex = 0;
 
   document.querySelector('#year').textContent = new Date().getFullYear();
 
@@ -44,44 +40,44 @@
     const button = document.createElement('button');
     button.type = 'button';
     button.className = 'stage-button';
+    button.id = `stage-tab-${index + 1}`;
+    button.setAttribute('role', 'tab');
+    button.setAttribute('aria-controls', 'stage-panel');
+    button.setAttribute('aria-selected', String(index === 0));
+    button.tabIndex = index === 0 ? 0 : -1;
     button.setAttribute('aria-label', `Zobrazit fázi ${index + 1}: ${scene.phase}`);
     button.innerHTML = `<span class="stage-button-no">0${index + 1}</span><span class="stage-button-label">${scene.phase}</span>`;
-    button.addEventListener('click', () => {
-      const mobile = matchMedia('(max-width: 760px)').matches;
-      const progressPoint = mobile ? index / (scenes.length - 1) : index === scenes.length - 1 ? .99 : (index + 0.5) / scenes.length;
-      const storyTop = story.getBoundingClientRect().top + window.scrollY;
-      if (mobile) document.documentElement.classList.add('story-jumping');
-      window.scrollTo({ top: storyTop + progressPoint * (story.offsetHeight - window.innerHeight), behavior: mobile ? 'instant' : matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
-      if (mobile) requestAnimationFrame(() => {
-        document.documentElement.classList.remove('story-jumping');
-        updateStory();
-      });
+    button.addEventListener('click', () => activateStage(index));
+    button.addEventListener('keydown', event => {
+      let next = index;
+      if (event.key === 'ArrowRight') next = (index + 1) % scenes.length;
+      else if (event.key === 'ArrowLeft') next = (index - 1 + scenes.length) % scenes.length;
+      else if (event.key === 'Home') next = 0;
+      else if (event.key === 'End') next = scenes.length - 1;
+      else return;
+      event.preventDefault();
+      activateStage(next);
+      buttons.children[next].focus();
     });
     buttons.append(button);
-    const snap = document.createElement('span');
-    snap.className = 'story-snap-point';
-    snap.setAttribute('aria-hidden', 'true');
-    snap.style.top = `${index * 100}svh`;
-    story.append(snap);
   });
 
   function setScene(index, p) {
     const scene = scenes[index];
     if (!scene) return;
-    title.textContent = scene.title;
+    title.textContent = scene.phase;
     copy.textContent = scene.copy;
-    kicker.textContent = `Kapitola 0${index + 1} / 0${scenes.length} · ${scene.phase}`;
+    kicker.textContent = `0${index + 1} / 0${scenes.length} · ${scene.phase}`;
     stageCount.textContent = `0${index + 1} / 0${scenes.length}`;
     document.querySelector('#mobile-stage-name').textContent = scene.phase;
-    services.replaceChildren(...scene.services.map(label => {
-      const chip = document.createElement('span'); chip.className = 'service-chip'; chip.textContent = label; return chip;
-    }));
+    document.querySelector('#stage-panel').setAttribute('aria-labelledby', `stage-tab-${index + 1}`);
     buttons.querySelectorAll('.stage-button').forEach((button, i) => {
       button.classList.toggle('is-active', i === index);
-      if (i === index) button.setAttribute('aria-current', 'step'); else button.removeAttribute('aria-current');
+      button.setAttribute('aria-selected', String(i === index));
+      button.tabIndex = i === index ? 0 : -1;
     });
     progress.querySelectorAll('.progress-segment').forEach((bar, i) => {
-      bar.style.setProperty('--fill', i < index ? '1' : i === index ? String(Math.max(.08, Math.min(.98, p * scenes.length - index))) : '0');
+      bar.style.setProperty('--fill', i <= index ? '1' : '0');
     });
     room.dataset.stage = String(index);
     const clamp = value => Math.max(0, Math.min(1, value));
@@ -92,21 +88,21 @@
     room.style.setProperty('--plaster-opacity', clamp((p - .29) / .12));
     room.style.setProperty('--paint-opacity', p >= .43 ? 1 : 0);
     room.style.setProperty('--side-paint-opacity', clamp((p - .43) / .13));
-    room.style.setProperty('--wire-opacity', clamp((p - .1) / .025) * (1 - clamp((p - .39) / .05)));
+    room.style.setProperty('--wire-opacity', index === 1 ? 1 : 0);
     const wireOffset = 1 - clamp((p - .1) / .08);
     const wireLength = (410 * room.clientWidth + 610 * room.clientHeight) / 1000 + 2;
     wirePaths.forEach(path => {
       path.style.strokeDasharray = `${wireLength}px`;
       path.style.strokeDashoffset = `${wireLength * wireOffset}px`;
     });
-    room.style.setProperty('--pipe-opacity', clamp((p - .18) / .02) * (1 - clamp((p - .4) / .04)));
+    room.style.setProperty('--pipe-opacity', index === 1 ? 1 : 0);
     const pipeOffset = 1 - clamp((p - .19) / .09);
     pipePaths.forEach(({ path, length }) => {
       path.style.strokeDasharray = `${length}px`;
       path.style.strokeDashoffset = `${length * pipeOffset}px`;
     });
     room.style.setProperty('--ceiling-opacity', clamp((p - .56) / .12));
-    room.style.setProperty('--light-opacity', clamp((p - .63) / .1));
+    room.style.setProperty('--light-opacity', index >= 4 ? 1 : 0);
     room.style.setProperty('--switch-opacity', clamp((p - .23) / .025));
     room.style.setProperty('--lamp-opacity', clamp((p - .8) / .13));
     const floorProgress = clamp((p - .72) / .14);
@@ -119,7 +115,8 @@
     room.style.setProperty('--old-window-opacity', 1 - newWindow);
     room.style.setProperty('--new-window-opacity', newWindow);
     setArtwork(p);
-    document.querySelector('.story-sticky').style.setProperty('--story-progress', Math.max(0, Math.min(1, p)));
+    document.querySelector('#stage-prev').disabled = index === 0;
+    document.querySelector('#stage-next').disabled = index === scenes.length - 1;
   }
 
   function setArtwork(p) {
@@ -139,38 +136,17 @@
     });
   }
 
-  function updateStory() {
-    const rect = story.getBoundingClientRect();
-    const total = story.offsetHeight - window.innerHeight;
-    const p = Math.max(0, Math.min(1, -rect.top / Math.max(1, total)));
-    const mobile = matchMedia('(max-width: 760px)').matches;
-    const index = mobile ? Math.min(scenes.length - 1, Math.round(p * (scenes.length - 1))) : Math.min(scenes.length - 1, Math.floor(p * scenes.length));
-    if (mobile) {
-      if (index !== mobileStageIndex) {
-        const visualProgress = index === 0 ? .07 : Math.min(.99, (index + 1) / scenes.length - .001);
-        const shouldScan = mobileStageIndex !== null && !matchMedia('(prefers-reduced-motion: reduce)').matches;
-        setScene(index, visualProgress);
-        room.classList.remove('is-scanning');
-        if (shouldScan) {
-          void room.offsetWidth;
-          room.classList.add('is-scanning');
-        }
-        mobileStageIndex = index;
-      }
-    } else {
-      mobileStageIndex = null;
-      setScene(index, p);
-    }
-    document.querySelector('.site-header').classList.toggle('is-visible', window.scrollY > window.innerHeight * .72);
-    scrollTick = false;
+  function activateStage(index) {
+    activeStageIndex = Math.max(0, Math.min(scenes.length - 1, index));
+    const scene = scenes[activeStageIndex];
+    // The first step stops before the wiring appears. Later steps use the
+    // settled end of their own interval, independent of scroll position.
+    const visualProgress = activeStageIndex === 0 ? .07 : activeStageIndex === scenes.length - 1 ? 1 : scene.end - .001;
+    setScene(activeStageIndex, visualProgress);
   }
-  window.addEventListener('scroll', () => {
-    if (!scrollTick) { window.requestAnimationFrame(updateStory); scrollTick = true; }
-  }, { passive: true });
-  window.addEventListener('resize', () => { mobileStageIndex = null; updateStory(); });
-  updateStory();
-
-  document.querySelector('#skip-story').addEventListener('click', () => document.querySelector('#sluzby').scrollIntoView({ behavior: 'smooth' }));
+  document.querySelector('#stage-prev').addEventListener('click', () => activateStage(activeStageIndex - 1));
+  document.querySelector('#stage-next').addEventListener('click', () => activateStage(activeStageIndex + 1));
+  activateStage(0);
   menuToggle.addEventListener('click', () => {
     const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
     menuToggle.setAttribute('aria-expanded', String(!isOpen));
@@ -179,11 +155,28 @@
   nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
     nav.classList.remove('is-open'); menuToggle.setAttribute('aria-expanded', 'false');
   }));
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && nav.classList.contains('is-open')) {
+      nav.classList.remove('is-open'); menuToggle.setAttribute('aria-expanded', 'false'); menuToggle.focus();
+    }
+  });
+  document.querySelectorAll('[data-service]').forEach(link => link.addEventListener('click', () => {
+    const select = document.querySelector('#inquiry-form select[name="service"]');
+    select.value = link.dataset.service;
+  }));
 
+  for (const input of ['name', 'phone']) {
+    document.querySelector(`#inquiry-form [name="${input}"]`).addEventListener('input', event => event.currentTarget.setCustomValidity(''));
+  }
   document.querySelector('#inquiry-form').addEventListener('submit', event => {
     event.preventDefault();
     const form = event.currentTarget;
     if (form.elements.website.value) return;
+    const name = form.elements.name;
+    const phone = form.elements.phone;
+    name.setCustomValidity(name.value.trim() ? '' : 'Vyplňte prosím jméno a příjmení.');
+    const digits = phone.value.replace(/\D/g, '');
+    phone.setCustomValidity(/^[+]?[-0-9 ()]+$/.test(phone.value.trim()) && digits.length >= 9 && digits.length <= 15 ? '' : 'Zadejte platné telefonní číslo.');
     if (!form.reportValidity()) return;
     const values = new FormData(form);
     const subject = encodeURIComponent(`Nezávazná poptávka — ${values.get('name')}`);

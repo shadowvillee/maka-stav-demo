@@ -1,0 +1,537 @@
+/* Original MAKA-STAV room artwork, collected in source order. */
+
+/* styles.css */
+.room{position:absolute;left:50%;top:50%;width:min(72vw,1120px);height:min(58vw,610px);min-height:390px;transform:translate(-50%,-48%);perspective:1000px;filter:drop-shadow(0 35px 70px rgba(0,0,0,.38));--story-progress:0}
+.room:after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse,transparent 43%,rgba(0,0,0,.4) 100%)}
+.room-ceiling{position:absolute;z-index:2;left:0;right:0;top:0;height:15%;background:linear-gradient(170deg,#8f8b81,#5c5952);clip-path:polygon(0 0,100% 0,84% 100%,16% 100%);opacity:.94}
+.room-back{position:absolute;z-index:1;left:16%;right:16%;top:13%;height:69%;overflow:hidden;transition:background-color .6s}
+.wall-brick{background-color:#98503b;background-image:linear-gradient(0deg,transparent 93%,rgba(237,190,152,.27) 94%,rgba(57,28,20,.52) 100%),linear-gradient(90deg,transparent 48%,rgba(241,197,158,.24) 49%,rgba(57,28,20,.55) 51%,transparent 52%);background-size:72px 33px,144px 66px;background-position:0 0,36px 0}
+.room-left{position:absolute;z-index:1;top:14%;left:0;width:17%;height:68%;clip-path:polygon(0 0,100% 0,100% 100%,0 85%);background:linear-gradient(100deg,#514c45,#a2674e)}
+.room-right{position:absolute;z-index:1;right:0;top:14%;width:17%;height:68%;clip-path:polygon(0 0,100% 0,100% 85%,0 100%);background:linear-gradient(260deg,#4a4741,#806351)}
+.room-plaster,.room-paint{position:absolute;z-index:3;left:16%;top:13%;width:68%;height:69%;clip-path:inset(0 calc(100% - var(--plaster-reveal,0%)) 0 0);pointer-events:none}
+.room-plaster{background:linear-gradient(165deg,rgba(179,173,159,.97),rgba(121,118,109,.96));opacity:var(--plaster-opacity,0)}
+.room-paint{z-index:4;background:linear-gradient(180deg,#e7e1d5,#c8c1b4);opacity:var(--paint-opacity,0);clip-path:inset(0 calc(100% - var(--paint-reveal,0%)) 0 0)}
+.room-wires{position:absolute;z-index:5;inset:20% 24% 28%;opacity:var(--wire-opacity,0);transition:opacity .3s}
+.room-wires i{position:absolute;display:block;width:2px;background:#e6b27c;box-shadow:0 0 9px rgba(240,172,98,.6)}
+.room-wires i:nth-child(1){left:16%;top:4%;height:70%}
+.room-wires i:nth-child(2){left:16%;top:72%;width:39%;height:2px}
+.room-wires i:nth-child(3){left:55%;top:35%;height:38%}
+.room-wires i:nth-child(4){left:55%;top:34%;width:30%;height:2px}
+.room-ceiling-finish{position:absolute;z-index:6;left:13%;top:3%;width:74%;height:17%;background:linear-gradient(175deg,#e5dfd4,#bbb5a9);clip-path:polygon(0 0,100% 0,83% 100%,17% 100%);opacity:var(--ceiling-opacity,0)}
+.room-ceiling-finish b{position:absolute;bottom:12%;width:9%;height:2px;background:#aaa397}
+.room-ceiling-finish b:nth-child(1){left:21%}
+.room-ceiling-finish b:nth-child(2){left:45%}
+.room-ceiling-finish b:nth-child(3){left:69%}
+.room-lights{position:absolute;z-index:7;left:25%;right:25%;top:15%;display:flex;justify-content:space-between;opacity:var(--light-opacity,0)}
+.room-lights i{width:12px;height:7px;border-radius:50%;background:#ffe8aa;box-shadow:0 0 8px 4px rgba(255,219,143,.8),0 0 50px 14px rgba(255,207,116,.26)}
+.room-floor{position:absolute;z-index:2;left:3%;right:3%;top:77%;height:23%;clip-path:polygon(13% 0,87% 0,100% 100%,0 100%);background:linear-gradient(0deg,#514a40,#94806a)}
+.room-boards{position:absolute;z-index:4;left:5%;right:5%;top:78%;height:22%;clip-path:polygon(12% 0,88% 0,100% 100%,0 100%);background:repeating-linear-gradient(0deg,transparent 0 23px,rgba(56,42,32,.48) 24px 26px),repeating-linear-gradient(90deg,#9d795c 0 88px,#c29b74 89px 92px);opacity:var(--floor-opacity,0)}
+.room-window{position:absolute;z-index:5;top:25%;right:18%;width:15%;height:37%;border:7px solid #e2dfd8;background:linear-gradient(150deg,#abc3c5,#e8e2d5 48%,#a8beb9);box-shadow:0 0 0 2px #413d37;opacity:var(--window-opacity,.55)}
+.room-window span{position:absolute;background:#e4e0d8}
+.room-window span:first-child{left:49%;top:0;bottom:0;width:5px}
+.room-window span:nth-child(2){top:50%;left:0;right:0;height:5px}
+.room-window span:nth-child(3){left:7%;right:7%;bottom:-13px;height:9px;background:#6d655c}
+.room-furniture{position:absolute;z-index:8;inset:45% 10% 13%;opacity:var(--furniture-opacity,0);transition:opacity .25s}
+.sofa{position:absolute;left:30%;bottom:0;width:40%;height:42%;border-radius:34px 34px 7px 7px;background:linear-gradient(180deg,#d1c7b7,#9c9282);box-shadow:0 12px 15px #29241f}
+.sofa:before{content:"";position:absolute;left:7%;right:7%;top:-15%;height:52%;border-radius:28px 28px 8px 8px;background:#d6cdbd}
+.sofa i{position:absolute;top:0;bottom:0;width:2px;background:rgba(86,76,64,.25)}
+.sofa i:first-child{left:34%}
+.sofa i:last-child{left:67%}
+.table{position:absolute;left:45%;bottom:-12%;width:17%;height:8%;border-radius:50%;background:#342f2a;box-shadow:0 27px 0 -10px #322e29}
+.plant{position:absolute;right:17%;bottom:2%;width:5%;height:32%}
+.plant b{position:absolute;bottom:0;left:10%;width:80%;height:34%;background:#b78a69;clip-path:polygon(12% 0,88% 0,72% 100%,28% 100%)}
+.plant i{position:absolute;bottom:25%;left:50%;height:70%;width:3px;background:#52664d;transform:rotate(-18deg);transform-origin:bottom}
+.plant i:nth-child(2){transform:rotate(24deg)}
+.plant i:nth-child(3){transform:rotate(48deg);height:55%}
+.room-artwork{position:absolute;z-index:10;inset:0;pointer-events:none}
+.room-frame{position:absolute;inset:0;opacity:0;transition:opacity .12s linear;will-change:clip-path}
+.room-frame img{display:block;width:100%;height:100%;object-fit:cover}
+.room-frame.is-ready{opacity:1}
+.room-vignette{position:absolute;z-index:9;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.1),transparent 20%,transparent 80%,rgba(0,0,0,.12));pointer-events:none}
+.room-caption{position:absolute;z-index:12;bottom:4%;left:3%;font:9px var(--mono);letter-spacing:.09em;color:#f5e9d8;text-shadow:0 1px 4px #222}
+.room-ruler{position:absolute;z-index:12;right:2%;bottom:4%;width:19%;display:flex;align-items:center;gap:8px;font:9px var(--mono);color:#f5e9d8}
+.room-ruler i{height:1px;flex:1;background:linear-gradient(90deg,var(--accent) var(--story-progress-percent,0%),rgba(255,255,255,.5) 0)}
+@media(max-width:1050px){
+.room{left:44%;width:75vw}
+}
+@media(max-width:760px){
+.room{top:43%;left:50%;width:96vw;height:64vw;min-height:260px;max-height:380px;transform:translate(-50%,-50%)}
+.room-back{left:14%;right:14%;}
+.room-left{width:15%}
+.room-right{width:15%}
+.room-window{right:16%;width:17%;border-width:4px}
+.room-caption{font-size:7px}
+.room-ruler{font-size:7px}
+}
+.room{left:0;top:0;width:100%;height:100svh;min-height:100svh;max-width:none;transform:none;perspective:none;filter:none}
+.room:after{background:linear-gradient(90deg,rgba(0,0,0,.2),transparent 32%,transparent 78%,rgba(0,0,0,.18)),linear-gradient(0deg,rgba(0,0,0,.17),transparent 28%,transparent 82%,rgba(0,0,0,.15))}
+.room-back{left:16%;right:16%;top:13%;height:69%}
+.room-left{width:17%}
+.room-right{width:17%}
+.room-caption{bottom:clamp(62px,7vh,84px);left:clamp(24px,4vw,60px)}
+.room-ruler{bottom:clamp(62px,7vh,84px);right:clamp(24px,4vw,60px)}
+@media(max-width:760px){
+.room{left:0;top:0;width:100%;height:100svh;min-height:100svh;max-height:none;transform:none}
+.room-back{left:12%;right:12%;top:15%;height:49%}
+.room-left{width:13%;height:50%;top:16%}
+.room-right{width:13%;height:50%;top:16%}
+.room-ceiling{height:17%}
+.room-floor{top:61%;height:39%}
+.room-boards{top:62%;height:38%}
+.room-window{top:24%;right:14%;width:20%;height:34%}
+.room-furniture{inset:43% 7% 25%}
+.room-caption{top:57svh;right:auto;left:18px;bottom:auto;font-size:7px}
+.room-ruler{display:none}
+}
+
+/* visual-v2.css */
+.room{left:0;top:0;width:100%;height:100svh;min-height:0;max-width:none;transform:none;perspective:none;filter:none}
+.room:after{inset:0;background:linear-gradient(90deg,rgba(27,27,27,.16),transparent 22%,transparent 78%,rgba(27,27,27,.16))}
+.room-ceiling{background:var(--concrete);opacity:.96}
+.room-back{left:15%;right:15%;top:14%;height:68%;}
+.wall-brick{background-color:var(--brick);background-image:linear-gradient(0deg,transparent 94%,rgba(27,27,27,.35) 95%),linear-gradient(90deg,transparent 48%,rgba(27,27,27,.4) 49%,rgba(27,27,27,.4) 50%,transparent 51%);background-size:72px 34px,144px 68px}
+.room-left,.room-right{background:var(--steel)}
+.room-plaster{background:var(--concrete)}
+.room-paint{background:var(--paper)}
+.room-wires i{background:var(--red);box-shadow:none}
+.room-ceiling-finish{background:var(--paper)}
+.room-lights i{background:var(--white);box-shadow:none}
+.room-floor{background:var(--concrete)}
+.room-boards{background:repeating-linear-gradient(0deg,transparent 0 23px,rgba(27,27,27,.25) 24px 26px),repeating-linear-gradient(90deg,var(--concrete) 0 88px,var(--steel) 89px 92px)}
+.room-window{border-color:var(--paper);background:var(--concrete);box-shadow:none}
+.room-window span,.room-window span:nth-child(3){background:var(--paper)}
+.room-furniture{filter:none}
+.sofa,.sofa:before,.table,.plant b{box-shadow:none;background:var(--concrete)}
+.plant i{background:var(--steel)}
+.room-frame{transition:opacity .14s linear}
+.room-caption{position:absolute;top:calc(var(--header-h) + 23px);right:clamp(22px,5vw,76px);left:auto;bottom:auto;padding:6px 9px;background:var(--industrial);font:400 11px var(--mono);letter-spacing:.04em;color:var(--white);text-shadow:none}
+.room-ruler{right:clamp(22px,5vw,76px);bottom:clamp(94px,12vh,126px);width:clamp(145px,18vw,250px);font:500 12px var(--mono);color:var(--white)}
+.room-ruler i{background:linear-gradient(90deg,var(--red) var(--story-progress-percent,0%),rgba(255,255,255,.75) 0)}
+@media(max-width:1050px){
+.room{left:0;width:100%}
+}
+@media(max-width:760px){
+.room{left:0;top:0;width:100%;height:100svh;min-height:0;max-height:none;transform:none}
+.room-back{left:11%;right:11%;top:16%;height:49%}
+.room-left,.room-right{width:12%;height:50%;top:16%}
+.room-ceiling{height:17%}
+.room-floor{top:62%;height:38%}
+.room-boards{top:63%;height:37%}
+.room-window{top:24%;right:13%;width:21%;height:34%;border-width:4px}
+.room-furniture{inset:43% 7% 24%}
+.room-caption{display:none}
+.room-ruler{display:none}
+}
+.room{left:50%;width:100vw;height:100%;max-width:none;min-height:0;transform:translate(-50%,-50%)}
+.room-back.wall-brick,.room-left,.room-right{
+  background-image:linear-gradient(rgba(27,18,14,.13),rgba(27,18,14,.25)),url('public/images/textures/room/brick-wall.jpg');
+  background-size:cover,260px 260px;background-position:center;background-repeat:no-repeat,repeat
+}
+.room-side-plaster,.room-side-paint{position:absolute;pointer-events:none}
+.room-side-plaster{z-index:3;top:14%;height:68%;width:17%;opacity:var(--plaster-opacity,0);background-image:linear-gradient(rgba(220,214,202,.22),rgba(96,93,85,.32)),url('public/images/textures/room/wall-cement.jpg');background-size:cover,240px 240px;background-repeat:no-repeat,repeat}
+.room-side-left{left:0;clip-path:polygon(0 0,100% 0,100% 100%,0 85%);mask-image:linear-gradient(90deg,#000 var(--plaster-reveal,0%),transparent var(--plaster-reveal,0%))}
+.room-side-right{right:0;clip-path:polygon(0 0,100% 0,100% 85%,0 100%);mask-image:linear-gradient(90deg,#000 var(--plaster-reveal,0%),transparent var(--plaster-reveal,0%))}
+.room-plaster{background-image:linear-gradient(rgba(220,214,202,.18),rgba(96,93,85,.24)),url('public/images/textures/room/wall-cement.jpg');background-size:cover,240px 240px;background-repeat:no-repeat,repeat}
+.room-side-paint{z-index:4;top:14%;height:68%;width:17%;opacity:var(--paint-opacity,0);background-image:linear-gradient(rgba(250,248,243,.08),rgba(224,219,211,.16)),url('public/images/textures/room/wall-finish.jpg');background-size:cover,230px 230px;background-repeat:no-repeat,repeat;mask-image:linear-gradient(90deg,#000 var(--paint-reveal,0%),transparent var(--paint-reveal,0%))}
+.room-paint{background-image:linear-gradient(rgba(250,248,243,.08),rgba(224,219,211,.16)),url('public/images/textures/room/wall-finish.jpg');background-size:cover,230px 230px;background-repeat:no-repeat,repeat}
+.room-ceiling{background-image:linear-gradient(rgba(34,31,27,.12),rgba(34,31,27,.2)),url('public/images/textures/room/ceiling-base.jpg');background-size:cover,260px 260px;background-repeat:no-repeat,repeat}
+.room-ceiling-finish{background-image:linear-gradient(rgba(242,239,232,.08),rgba(193,188,178,.18)),url('public/images/textures/room/ceiling-finish.jpg');background-size:cover,260px 260px;background-repeat:no-repeat,repeat}
+.room-floor{background-image:linear-gradient(rgba(49,44,37,.42),rgba(49,44,37,.5)),url('public/images/textures/room/floor-base.jpg');background-size:cover,260px 260px;background-repeat:no-repeat,repeat}
+.room-cable,.room-window-asset,.room-switch-asset{position:absolute;display:block;height:auto;object-fit:contain;pointer-events:none}
+.room-wires{display:none}
+.room-cable{z-index:3;left:8%;top:23%;width:42%;height:47%;opacity:var(--wire-opacity,0);filter:drop-shadow(0 2px 3px rgba(0,0,0,.6));transition:opacity .25s}
+.room-window-asset{z-index:6;top:20%;right:18%;width:20%;height:47%;opacity:var(--window-opacity,.55);filter:drop-shadow(0 5px 8px rgba(0,0,0,.45));transition:opacity .3s}
+.room-switch-asset{z-index:7;left:17%;top:49%;width:8%;height:13%;opacity:var(--switch-opacity,0);filter:drop-shadow(0 2px 4px rgba(0,0,0,.55));transition:opacity .3s}
+.room-lights{z-index:7;left:24%;right:24%;top:12%;height:13%;align-items:center}
+.room-lights img{display:block;width:24%;height:100%;object-fit:contain;opacity:.96;filter:drop-shadow(0 4px 8px rgba(0,0,0,.32))}
+@media(max-width:760px){
+.room{left:0;top:0;width:100vw;height:100svh;transform:none}
+.room-side-plaster,.room-side-paint{top:16%;height:50%;width:12%}
+.room-plaster,.room-paint{left:11%;top:16%;width:78%;height:49%}
+.room-side-left{left:0}
+.room-side-right{right:0}
+.room-cable{left:6%;top:22%;width:44%;height:38%}
+.room-window-asset{top:22%;right:12%;width:34%;height:34%}
+.room-switch-asset{left:13%;top:43%;width:12%;height:11%}
+.room-lights{left:14%;right:14%;top:13%;height:10%}
+.room-lights img{width:29%}
+}
+.room{
+  left:0;top:0;right:0;bottom:auto;width:100%;height:calc(100svh - 76px);min-height:0;max-height:none;
+  transform:none;overflow:hidden;perspective:none;filter:none;isolation:isolate;
+  --wall-top:18%;--wall-height:52%;--wall-left:16%;--wall-width:68%;
+}
+.room:after{inset:0;background:linear-gradient(180deg,rgba(20,19,18,.16),transparent 18%,transparent 78%,rgba(20,19,18,.2));pointer-events:none}
+.room-ceiling{z-index:4;left:0;right:0;top:0;height:24%;clip-path:polygon(4% 0,96% 0,82% 100%,18% 100%);background:linear-gradient(180deg,#8d8981 0%,#c5c0b6 100%);opacity:1}
+.room-back{z-index:2;left:var(--wall-left);right:auto;top:var(--wall-top);width:var(--wall-width);height:var(--wall-height);overflow:hidden;background-color:#9d523d;transition:none}
+.room-back.wall-brick{background-image:linear-gradient(180deg,rgba(35,24,20,.08),rgba(35,24,20,.16)),url('public/images/textures/room/brick-wall.jpg');background-size:cover;background-position:center 46%;background-repeat:no-repeat}
+.room-left,.room-right{z-index:1;top:var(--wall-top);height:var(--wall-height);width:18%;background:linear-gradient(100deg,#77736c,#b4ada1);clip-path:polygon(0 0,100% 0,100% 100%,0 82%)}
+.room-left{left:0}
+.room-right{right:0;clip-path:polygon(0 0,100% 0,100% 82%,0 100%)}
+.room-side-plaster,.room-side-paint{top:var(--wall-top);height:var(--wall-height);width:18%;clip-path:polygon(0 0,100% 0,100% 100%,0 82%);background:#c8c4bb;mask-image:none;opacity:var(--plaster-opacity,0);transition:opacity .08s linear}
+.room-side-left{left:0}
+.room-side-right{right:0;clip-path:polygon(0 0,100% 0,100% 82%,0 100%)}
+.room-side-paint{z-index:5;background:#f2f0ea;opacity:var(--paint-opacity,0)}
+.room-plaster,.room-paint{left:var(--wall-left);top:var(--wall-top);width:var(--wall-width);height:var(--wall-height);clip-path:none;transition:opacity .08s linear}
+.room-plaster{z-index:3;background:linear-gradient(135deg,#d2cec5,#bdb9b0);opacity:var(--plaster-opacity,0)}
+.room-paint{z-index:5;background:linear-gradient(135deg,#f8f6f0,#e8e5dd);opacity:var(--paint-opacity,0)}
+.room-wires{z-index:4;inset:20% 20% 32%;opacity:var(--wire-opacity,0)}
+.room-wires i{background:#272522;box-shadow:0 0 0 1px rgba(255,255,255,.08)}
+.room-cable{z-index:4;left:20%;top:22%;width:36%;height:38%;opacity:var(--wire-opacity,0);filter:drop-shadow(0 1px 1px rgba(0,0,0,.25));transition:opacity .08s linear}
+.room-ceiling-finish{z-index:6;left:9%;top:3%;width:82%;height:22%;clip-path:polygon(0 0,100% 0,83% 100%,17% 100%);background:linear-gradient(180deg,#f7f5ef,#dedbd3);opacity:var(--ceiling-opacity,0);transition:opacity .12s linear}
+.room-ceiling-finish b{background:rgba(92,87,78,.22)}
+.room-lights{z-index:8;left:22%;right:22%;top:10%;height:13%;display:flex;justify-content:space-between;opacity:var(--light-opacity,0);transition:opacity .12s linear}
+.room-lights img{width:14%;height:100%;object-fit:contain;filter:drop-shadow(0 3px 5px rgba(0,0,0,.2))}
+.room-floor{z-index:2;left:0;right:0;top:66%;height:34%;clip-path:polygon(18% 0,82% 0,100% 100%,0 100%);background:linear-gradient(180deg,#746d63 0%,#4f4a43 100%)}
+.room-boards{z-index:3;left:0;right:0;top:66%;height:34%;clip-path:polygon(18% 0,82% 0,100% 100%,0 100%);background:repeating-linear-gradient(0deg,transparent 0 46px,rgba(54,39,28,.55) 47px 50px),repeating-linear-gradient(90deg,#93775f 0 155px,#b39578 156px 160px,#876b54 161px 164px);opacity:var(--floor-opacity,0);transition:opacity .14s linear}
+.room-window-asset{z-index:7;top:25%;right:19%;width:17%;height:34%;opacity:1;filter:drop-shadow(0 5px 7px rgba(0,0,0,.3));transition:none}
+.room-window{display:none}
+.room-switch-asset{z-index:8;left:18%;top:48%;width:6%;height:12%;opacity:var(--switch-opacity,0);transition:opacity .12s linear}
+.room-furniture{z-index:9;inset:48% 12% 8%;opacity:var(--furniture-opacity,0);transition:opacity .16s linear}
+.room-artwork{z-index:10}
+.room-vignette{z-index:11;pointer-events:none}
+.room-caption,.room-ruler{z-index:12}
+@media(max-width:1050px) and (min-width:761px){
+.room{left:0;width:100%;height:calc(100svh - 74px)}
+.room-window-asset{right:17%;width:19%}
+}
+@media(max-width:760px){
+.room{left:0;top:0;width:100%;height:calc(100svh - 70px);min-height:0;max-height:none;transform:none;--wall-top:20%;--wall-height:42%;--wall-left:10%;--wall-width:80%}
+.room-ceiling{height:25%;clip-path:polygon(0 0,100% 0,91% 100%,9% 100%)}
+.room-left,.room-right{top:var(--wall-top);height:var(--wall-height);width:11%}
+.room-side-plaster,.room-side-paint{top:var(--wall-top);height:var(--wall-height);width:11%}
+.room-plaster,.room-paint{left:var(--wall-left);top:var(--wall-top);width:var(--wall-width);height:var(--wall-height)}
+.room-ceiling-finish{left:3%;width:94%;height:23%;top:3%;clip-path:polygon(0 0,100% 0,91% 100%,9% 100%)}
+.room-lights{left:13%;right:13%;top:10%;height:12%}
+.room-lights img{width:25%}
+.room-cable{left:15%;top:24%;width:34%;height:31%}
+.room-window-asset{top:26%;right:13%;width:26%;height:28%}
+.room-switch-asset{left:12%;top:46%;width:10%;height:10%}
+.room-floor,.room-boards{top:61%;height:39%;clip-path:polygon(10% 0,90% 0,100% 100%,0 100%)}
+.room-furniture{inset:45% 4% 7%}
+.room-caption,.room-ruler{display:none}
+}
+@media(max-height:740px) and (min-width:761px){
+.room{height:calc(100svh - 68px)}
+.room-ceiling{height:22%}
+.room-back,.room-left,.room-right,.room-plaster,.room-paint,.room-side-plaster,.room-side-paint{--wall-top:17%;--wall-height:53%}
+}
+.room-caption{display:none}
+.room-boards{
+  background:
+    repeating-linear-gradient(0deg,transparent 0 58px,rgba(47,34,25,.22) 59px 61px),
+    repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 152px,rgba(58,42,30,.2) 153px 155px,rgba(255,255,255,.02) 156px 304px),
+    linear-gradient(180deg,#a58a71 0%,#80664f 100%);
+}
+.room-furniture{inset:48% 8% 8%}
+.sofa{left:49%;width:34%;height:40%;border-radius:20px 20px 4px 4px;background:linear-gradient(180deg,#bcb4a8 0%,#958b7f 100%);box-shadow:0 7px 0 -2px #61594f,0 14px 22px rgba(27,22,17,.2)}
+.sofa:before{left:5%;right:5%;top:-24%;height:55%;border-radius:18px 18px 5px 5px;background:linear-gradient(180deg,#ded8ce,#c7beb2);box-shadow:inset 0 -2px 0 rgba(82,72,61,.18)}
+.sofa i{width:1px;background:rgba(76,66,56,.25)}
+.table{left:55%;width:16%;background:linear-gradient(180deg,#655345,#392f29);box-shadow:0 22px 0 -8px #42372f,0 27px 14px -8px rgba(27,22,17,.28)}
+.plant b{background:linear-gradient(90deg,#a96e4e,#d09a71,#986449)}
+.room-boards{
+  background:
+    repeating-linear-gradient(0deg,transparent 0 58px,rgba(47,34,25,.13) 59px 61px),
+    repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 152px,rgba(58,42,30,.12) 153px 155px,rgba(255,255,255,.02) 156px 304px),
+    linear-gradient(180deg,#a58a71 0%,#80664f 100%);
+}
+.table{height:6%;bottom:-7%;background:linear-gradient(180deg,#76614d,#45382f);box-shadow:0 7px 10px rgba(27,22,17,.22)}
+
+/* classic-room.css */
+.room{position:absolute;left:50%;top:50%;width:min(72vw,1120px);height:min(58vw,610px);min-height:390px;transform:translate(-50%,-48%);perspective:1000px;filter:drop-shadow(0 35px 70px rgba(0,0,0,.38));--story-progress:0}
+.room:after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse,transparent 43%,rgba(0,0,0,.4) 100%)}
+.room-ceiling{position:absolute;z-index:2;left:0;right:0;top:0;height:15%;background:linear-gradient(170deg,#8f8b81,#5c5952);clip-path:polygon(0 0,100% 0,84% 100%,16% 100%);opacity:.94}
+.room-back{position:absolute;z-index:1;left:16%;right:16%;top:13%;height:69%;overflow:hidden;transition:background-color .6s}
+.wall-brick{background-color:#98503b;background-image:linear-gradient(0deg,transparent 93%,rgba(237,190,152,.27) 94%,rgba(57,28,20,.52) 100%),linear-gradient(90deg,transparent 48%,rgba(241,197,158,.24) 49%,rgba(57,28,20,.55) 51%,transparent 52%);background-size:72px 33px,144px 66px;background-position:0 0,36px 0}
+.room-left{position:absolute;z-index:1;top:14%;left:0;width:17%;height:68%;clip-path:polygon(0 0,100% 0,100% 100%,0 85%);background:linear-gradient(100deg,#514c45,#a2674e)}
+.room-right{position:absolute;z-index:1;right:0;top:14%;width:17%;height:68%;clip-path:polygon(0 0,100% 0,100% 85%,0 100%);background:linear-gradient(260deg,#4a4741,#806351)}
+.room-plaster,.room-paint{position:absolute;z-index:3;left:16%;top:13%;width:68%;height:69%;clip-path:inset(0 calc(100% - var(--plaster-reveal,0%)) 0 0);pointer-events:none}
+.room-plaster{background:linear-gradient(165deg,rgba(179,173,159,.97),rgba(121,118,109,.96));opacity:var(--plaster-opacity,0)}
+.room-paint{z-index:4;background:linear-gradient(180deg,#e7e1d5,#c8c1b4);opacity:var(--paint-opacity,0);clip-path:inset(0 calc(100% - var(--paint-reveal,0%)) 0 0)}
+.room-wires{position:absolute;z-index:5;inset:20% 24% 28%;opacity:var(--wire-opacity,0);transition:opacity .3s}
+.room-wires i{position:absolute;display:block;width:2px;background:#e6b27c;box-shadow:0 0 9px rgba(240,172,98,.6)}
+.room-wires i:nth-child(1){left:16%;top:4%;height:70%}
+.room-wires i:nth-child(2){left:16%;top:72%;width:39%;height:2px}
+.room-wires i:nth-child(3){left:55%;top:35%;height:38%}
+.room-wires i:nth-child(4){left:55%;top:34%;width:30%;height:2px}
+.room-ceiling-finish{position:absolute;z-index:6;left:13%;top:3%;width:74%;height:17%;background:linear-gradient(175deg,#e5dfd4,#bbb5a9);clip-path:polygon(0 0,100% 0,83% 100%,17% 100%);opacity:var(--ceiling-opacity,0)}
+.room-ceiling-finish b{position:absolute;bottom:12%;width:9%;height:2px;background:#aaa397}
+.room-ceiling-finish b:nth-child(1){left:21%}
+.room-ceiling-finish b:nth-child(2){left:45%}
+.room-ceiling-finish b:nth-child(3){left:69%}
+.room-lights{position:absolute;z-index:7;left:25%;right:25%;top:15%;display:flex;justify-content:space-between;opacity:var(--light-opacity,0)}
+.room-lights i{width:12px;height:7px;border-radius:50%;background:#ffe8aa;box-shadow:0 0 8px 4px rgba(255,219,143,.8),0 0 50px 14px rgba(255,207,116,.26)}
+.room-floor{position:absolute;z-index:2;left:3%;right:3%;top:77%;height:23%;clip-path:polygon(13% 0,87% 0,100% 100%,0 100%);background:linear-gradient(0deg,#514a40,#94806a)}
+.room-boards{position:absolute;z-index:4;left:5%;right:5%;top:78%;height:22%;clip-path:polygon(12% 0,88% 0,100% 100%,0 100%);background:repeating-linear-gradient(0deg,transparent 0 23px,rgba(56,42,32,.48) 24px 26px),repeating-linear-gradient(90deg,#9d795c 0 88px,#c29b74 89px 92px);opacity:var(--floor-opacity,0)}
+.room-window{position:absolute;z-index:5;top:25%;right:18%;width:15%;height:37%;border:7px solid #e2dfd8;background:linear-gradient(150deg,#abc3c5,#e8e2d5 48%,#a8beb9);box-shadow:0 0 0 2px #413d37;opacity:var(--window-opacity,.55)}
+.room-window span{position:absolute;background:#e4e0d8}
+.room-window span:first-child{left:49%;top:0;bottom:0;width:5px}
+.room-window span:nth-child(2){top:50%;left:0;right:0;height:5px}
+.room-window span:nth-child(3){left:7%;right:7%;bottom:-13px;height:9px;background:#6d655c}
+.room-furniture{position:absolute;z-index:8;inset:45% 10% 13%;opacity:var(--furniture-opacity,0);transition:opacity .25s}
+.sofa{position:absolute;left:30%;bottom:0;width:40%;height:42%;border-radius:34px 34px 7px 7px;background:linear-gradient(180deg,#d1c7b7,#9c9282);box-shadow:0 12px 15px #29241f}
+.sofa:before{content:"";position:absolute;left:7%;right:7%;top:-15%;height:52%;border-radius:28px 28px 8px 8px;background:#d6cdbd}
+.sofa i{position:absolute;top:0;bottom:0;width:2px;background:rgba(86,76,64,.25)}
+.sofa i:first-child{left:34%}
+.sofa i:last-child{left:67%}
+.table{position:absolute;left:45%;bottom:-12%;width:17%;height:8%;border-radius:50%;background:#342f2a;box-shadow:0 27px 0 -10px #322e29}
+.plant{position:absolute;right:17%;bottom:2%;width:5%;height:32%}
+.plant b{position:absolute;bottom:0;left:10%;width:80%;height:34%;background:#b78a69;clip-path:polygon(12% 0,88% 0,72% 100%,28% 100%)}
+.plant i{position:absolute;bottom:25%;left:50%;height:70%;width:3px;background:#52664d;transform:rotate(-18deg);transform-origin:bottom}
+.plant i:nth-child(2){transform:rotate(24deg)}
+.plant i:nth-child(3){transform:rotate(48deg);height:55%}
+.room-artwork{position:absolute;z-index:10;inset:0;pointer-events:none}
+.room-frame{position:absolute;inset:0;opacity:0;transition:opacity .12s linear;will-change:clip-path}
+.room-frame img{display:block;width:100%;height:100%;object-fit:cover}
+.room-frame.is-ready{opacity:1}
+.room-vignette{position:absolute;z-index:9;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.1),transparent 20%,transparent 80%,rgba(0,0,0,.12));pointer-events:none}
+.room-caption{position:absolute;z-index:12;bottom:4%;left:3%;font:9px var(--mono);letter-spacing:.09em;color:#f5e9d8;text-shadow:0 1px 4px #222}
+.room-ruler{position:absolute;z-index:12;right:2%;bottom:4%;width:19%;display:flex;align-items:center;gap:8px;font:9px var(--mono);color:#f5e9d8}
+.room-ruler i{height:1px;flex:1;background:linear-gradient(90deg,var(--accent) var(--story-progress-percent,0%),rgba(255,255,255,.5) 0)}
+.room{left:0;top:0;width:100%;height:100svh;min-height:100svh;max-width:none;transform:none;perspective:none;filter:none}
+.room:after{background:linear-gradient(90deg,rgba(0,0,0,.2),transparent 32%,transparent 78%,rgba(0,0,0,.18)),linear-gradient(0deg,rgba(0,0,0,.17),transparent 28%,transparent 82%,rgba(0,0,0,.15))}
+.room-back{left:16%;right:16%;top:13%;height:69%}
+.room-left{width:17%}
+.room-right{width:17%}
+.room-caption{bottom:clamp(62px,7vh,84px);left:clamp(24px,4vw,60px)}
+.room-ruler{bottom:clamp(62px,7vh,84px);right:clamp(24px,4vw,60px)}
+@media(max-width:760px){
+.room{left:0;top:0;width:100%;height:100svh;min-height:100svh;max-height:none;transform:none}
+.room-back{left:12%;right:12%;top:15%;height:49%}
+.room-left{width:13%;height:50%;top:16%}
+.room-right{width:13%;height:50%;top:16%}
+.room-ceiling{height:17%}
+.room-floor{top:61%;height:39%}
+.room-boards{top:62%;height:38%}
+.room-window{top:24%;right:14%;width:20%;height:34%}
+.room-furniture{inset:43% 7% 25%}
+.room-caption{top:57svh;right:auto;left:18px;bottom:auto;font-size:7px}
+.room-ruler{display:none}
+}
+.room{overflow:visible;isolation:auto;max-height:none}
+.room-back.wall-brick{background-color:#98503b;background-image:linear-gradient(0deg,transparent 93%,rgba(237,190,152,.27) 94%,rgba(57,28,20,.52) 100%),linear-gradient(90deg,transparent 48%,rgba(241,197,158,.24) 49%,rgba(57,28,20,.55) 51%,transparent 52%);background-size:72px 33px,144px 66px;background-position:0 0,36px 0;background-repeat:repeat}
+.room-left{background:linear-gradient(100deg,#514c45,#a2674e)}
+.room-right{background:linear-gradient(260deg,#4a4741,#806351)}
+.room-wires{display:block}
+.room-window{display:block}
+.room-caption{display:block;top:auto;right:auto;bottom:clamp(62px,7vh,84px);left:clamp(24px,4vw,60px);width:auto;height:auto;padding:0;background:none;color:#f5e9d8;text-shadow:0 1px 4px #222}
+.room-boards{background:repeating-linear-gradient(0deg,transparent 0 23px,rgba(56,42,32,.48) 24px 26px),repeating-linear-gradient(90deg,#9d795c 0 88px,#c29b74 89px 92px)}
+@media(max-width:760px){
+.room{overflow:hidden}
+.room-caption{display:block;top:51svh;right:auto;bottom:auto;left:18px}
+}
+
+/* room-refinement.css */
+.room{overflow:hidden;isolation:isolate}
+.room:after{z-index:10;background:linear-gradient(90deg,rgba(12,11,10,.25),transparent 36%,transparent 76%,rgba(12,11,10,.13)),linear-gradient(0deg,rgba(12,11,10,.12),transparent 24%,transparent 83%,rgba(12,11,10,.1))}
+.room-back{z-index:2;left:16%;right:16%;top:18%;width:68%;height:60%}
+.room-back.wall-brick{background-color:#99543e;background-image:linear-gradient(90deg,rgba(35,24,19,.15),transparent 25%,rgba(245,182,130,.045) 75%,rgba(45,28,21,.1)),url("public/images/brick-course.png");background-size:100% 100%,104px 56px;background-repeat:no-repeat,repeat}
+.room-left,.room-right{top:0;height:100%;width:16%;z-index:1}
+.room-left{left:0;clip-path:polygon(0 0,100% 18%,100% 78%,0 100%);background:linear-gradient(90deg,#413d39 0%,#916a55 100%)}
+.room-right{right:-1px;width:calc(16% + 2px);clip-path:polygon(0 18%,100% 0,100% 100%,0 78%);background:#8f4e3b}
+.side-bricks{position:absolute;z-index:0;inset:-34% -26%;background:linear-gradient(90deg,rgba(31,20,16,.16),transparent 55%,rgba(35,24,18,.32)),url("public/images/brick-course.png");background-size:100% 100%,104px 56px;transform:skewY(28deg) scale(1.1);transform-origin:left center}
+.room-left:before,.room-right:before,.room-left:after,.room-right:after{content:"";position:absolute;inset:0;pointer-events:none}
+.room-left:before,.room-right:before{z-index:1;opacity:var(--plaster-opacity,0);background:linear-gradient(90deg,#a7a197,#d0cabf)}
+.room-left:after,.room-right:after{z-index:2;opacity:var(--side-paint-opacity,0);background:linear-gradient(90deg,#d8d2c7,#e7e1d6)}
+.room-ceiling,.room-ceiling-finish{left:0;right:0;top:0;width:100%;height:18%;clip-path:polygon(0 0,100% 0,84% 100%,16% 100%)}
+.room-ceiling{z-index:3;background:linear-gradient(180deg,#77746d,#a6a096);opacity:1}
+.room-ceiling-finish{z-index:6;background:linear-gradient(180deg,#e8e4dc,#c9c2b5)}
+.room-ceiling-finish b{bottom:19%;background:rgba(91,85,76,.25)}
+.room-ceiling-finish b:nth-child(1){left:29%}
+.room-ceiling-finish b:nth-child(2){left:48%}
+.room-ceiling-finish b:nth-child(3){left:67%}
+.room-plaster,.room-paint{left:16%;top:18%;width:68%;height:60%}
+.room-plaster{background:linear-gradient(165deg,#b3ad9f,#79766d)}
+.room-floor,.room-boards{left:0;right:0;top:78%;width:100%;height:22%;clip-path:polygon(16% 0,84% 0,100% 100%,0 100%)}
+.room-floor{z-index:4;background:linear-gradient(180deg,#8d7b69,#4d463e)}
+.room-boards{z-index:5;background:none;overflow:hidden;opacity:1}
+.room-window{z-index:7;right:20%;top:27%;width:14%;height:34%;border:6px solid #ded8cd;background:linear-gradient(150deg,#8fa7a9,#dce3dc 56%,#aabdbb);box-shadow:0 0 0 2px #554d45,0 8px 20px rgba(29,24,20,.24)}
+.room-window span{background:#e5ded3}
+.room-window span:nth-child(3){background:#6d6256}
+.room-switch{position:absolute;z-index:8;left:59.25%;top:54.4%;width:1.55%;height:2.35%;min-width:12px;min-height:15px;border:1px solid #d8d3c9;border-radius:2px;background:linear-gradient(140deg,#faf8f3,#bcb7ad);box-shadow:0 2px 5px rgba(23,20,18,.25);opacity:var(--switch-opacity,0);pointer-events:none}
+.room-switch:after{content:"";position:absolute;inset:22% 28%;border:1px solid #aaa49a;border-radius:2px;background:#f1eee8;box-shadow:0 1px 2px rgba(35,31,27,.22)}
+.room-wires{z-index:3;inset:0;width:100%;height:100%;opacity:var(--wire-opacity,0);pointer-events:none}
+.room-wires svg{display:block;width:100%;height:100%}
+.room-wires path{fill:none;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.wire-channel{stroke:rgba(54,39,32,.65);stroke-width:5px}
+.wire-core{stroke:#d68155;stroke-width:2px}
+.room-lamp{position:absolute;z-index:8;left:80.5%;top:59%;width:3.2%;height:19%;opacity:var(--lamp-opacity,0);pointer-events:none;filter:drop-shadow(0 4px 4px rgba(35,29,23,.22))}
+.room-lamp:before{content:"";position:absolute;left:-20%;top:0;width:140%;height:22%;clip-path:polygon(25% 0,75% 0,100% 100%,0 100%);background:linear-gradient(90deg,#a89982,#dfd4c0 48%,#ac9e87);border-bottom:2px solid #776b5c;box-shadow:0 6px 22px rgba(255,224,153,.24)}
+.room-lamp:after{content:"";position:absolute;left:calc(50% - 2px);top:21%;bottom:5%;width:4px;background:linear-gradient(90deg,#6b6259,#c1b5a2,#625a52)}
+.room-lamp i{position:absolute;z-index:1;left:10%;right:10%;bottom:0;height:4px;border-radius:50%;background:#6e6359;box-shadow:0 2px 3px rgba(29,23,20,.3)}
+.room-lights{z-index:8;left:41%;right:17%;top:14%;height:2%;display:flex;align-items:center;justify-content:space-between}
+.room-lights i{position:relative;width:clamp(11px,1.1vw,17px);height:clamp(7px,.7vw,11px);border:2px solid #eee9dd;border-radius:50%;background:#fff0b9;box-shadow:0 0 7px 3px rgba(255,223,143,.5),0 10px 28px 9px rgba(255,216,130,.12)}
+.room-lights i:after{content:"";position:absolute;inset:2px;border-radius:50%;background:#fff6d1}
+.room-furniture{z-index:8;inset:47% 7% 10%}
+.sofa{left:54%;width:31%;height:41%;border-radius:24px 24px 5px 5px}
+.sofa:before{border-radius:21px 21px 6px 6px}
+.table{left:65%;width:13%;bottom:-4%}
+.plant{right:-3%;bottom:4%;width:4.5%}
+.room-caption{top:calc(var(--header-h) + 63px);right:clamp(24px,6vw,112px);bottom:auto;left:auto;padding:5px 7px;background:rgba(30,28,26,.72);font-size:9px;letter-spacing:.08em}
+.room-ruler{display:none}
+@media(max-width:1050px){
+.room-lights{left:39%;right:17%}
+}
+@media(max-width:760px){
+.room{height:100svh;overflow:hidden}
+.room-back{left:10%;right:10%;top:17%;width:80%;height:48%}
+.room-left,.room-right{top:0;height:100%;width:10%}
+.room-left{clip-path:polygon(0 0,100% 17%,100% 65%,0 100%)}
+.room-right{width:calc(10% + 2px);clip-path:polygon(0 17%,100% 0,100% 100%,0 65%)}
+.room-ceiling,.room-ceiling-finish{height:17%;clip-path:polygon(0 0,100% 0,90% 100%,10% 100%)}
+.room-plaster,.room-paint{left:10%;top:17%;width:80%;height:48%}
+.room-floor,.room-boards{top:65%;height:35%;clip-path:polygon(10% 0,90% 0,100% 100%,0 100%)}
+.room-window{right:14%;top:25%;width:24%;height:30%;border-width:4px}
+.room-switch{left:59%;top:54.4%;width:3.8%;height:2.4%}
+.room-lamp{left:80%;top:57%;width:6%;height:21%}
+.room-lights{left:43%;right:16%;top:12.5%;height:2%}
+.room-lights i{width:10px;height:7px;border-width:1px}
+.room-furniture{inset:43% 5% 21%}
+.sofa{left:48%;width:42%}
+.table{left:63%;width:18%}
+.plant{right:-5%;width:7%}
+.room-caption{display:none}
+}
+@media(max-height:740px) and (min-width:761px){
+.room-caption{top:calc(var(--header-h) + 40px)}
+}
+
+/* room-assets.css */
+.room-window{
+  z-index: 7;
+  top: 27%;
+  right: 12%;
+  width: 30%;
+  height: 34%;
+  border: 0;
+  background: none;
+  box-shadow: none;
+  opacity: 1;
+  pointer-events: none;
+}
+.room-window img{
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  filter: drop-shadow(0 6px 7px rgba(24, 21, 18, .25));
+}
+.room-window .window-old{ opacity: var(--old-window-opacity, 1); }
+.room-window .window-new{ opacity: var(--new-window-opacity, 0); }
+.room-plumbing{
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  opacity: var(--pipe-opacity, 0);
+  pointer-events: none;
+}
+.room-plumbing svg{ display: block; width: 100%; height: 100%; }
+.room-plumbing .plumbing-mobile{ display: none; }
+.room-plumbing path{
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  filter: drop-shadow(0 1px 1px rgba(24, 23, 21, .6));
+}
+.room-plumbing .pipe-drain{ stroke: #494e4d; stroke-width: 11px; }
+.room-plumbing .pipe-cold{ stroke: #6bb5bd; stroke-width: 5px; }
+.room-plumbing .pipe-hot{ stroke: #c27f5b; stroke-width: 5px; }
+.room-lamp-art{
+  position: absolute;
+  z-index: 8;
+  left: 67%;
+  top: 41%;
+  width: 32%;
+  height: 44%;
+  object-fit: fill;
+  opacity: var(--lamp-opacity, 0);
+  pointer-events: none;
+  filter: drop-shadow(0 7px 5px rgba(28, 23, 19, .26));
+}
+.room-furniture img{ position: absolute; display: block; object-fit: fill; pointer-events: none; }
+.room-plant-art{
+  z-index: 1;
+  left: 44%;
+  bottom: -2%;
+  width: 22%;
+  height: 88%;
+  filter: drop-shadow(2px 7px 5px rgba(28, 23, 19, .24));
+}
+.room-sofa-art{
+  z-index: 2;
+  left: 54%;
+  bottom: -2%;
+  width: 38%;
+  height: 84%;
+  filter: drop-shadow(0 10px 7px rgba(28, 23, 19, .28));
+}
+.room-furniture .table{ z-index: 3; }
+@media (max-width: 760px){
+.room-window{ right: 3%; top: 25%; width: 48%; height: 30%; }
+.room-plumbing .plumbing-desktop{ display: none; }
+.room-plumbing .plumbing-mobile{ display: block; }
+.room-lamp-art{ left: 65%; top: 46%; width: 36%; height: 31%; }
+.room-plant-art{ left: 66%; width: 20%; height: 73%; }
+.room-sofa-art{ left: 59%; width: 43%; height: 79%; }
+}
+
+/* refinement-harmonized-20261014.css */
+.room-floor-art{
+  position: absolute;
+  z-index: 5;
+  left: 0;
+  top: 78%;
+  width: 100%;
+  height: 22%;
+  overflow: hidden;
+  opacity: var(--floor-art-opacity, 0);
+  clip-path: inset(0 calc(100% - var(--floor-art-reveal, 0%)) 0 0);
+  pointer-events: none;
+}
+.room-floor-art img{
+  position: absolute;
+  display: block;
+  left: 0;
+  top: -207%;
+  width: 100%;
+  height: 508%;
+  object-fit: fill;
+  filter: saturate(.83) brightness(.94);
+}
+.room-rug-art,
+.room-wall-art{
+  position: absolute;
+  display: block;
+  object-fit: fill;
+  pointer-events: none;
+}
+.room-rug-art{
+  z-index: 6;
+  left: 58%;
+  top: 68%;
+  width: 31%;
+  height: 30%;
+  opacity: var(--rug-opacity, 0);
+  filter: saturate(.78) drop-shadow(0 3px 3px rgba(27, 24, 21, .24));
+}
+.room-wall-art{
+  z-index: 7;
+  left: 44%;
+  top: 26%;
+  width: 24%;
+  height: 24%;
+  opacity: var(--art-opacity, 0);
+  filter: drop-shadow(0 5px 5px rgba(28, 26, 23, .22));
+}
+@media (max-width: 760px){
+.room.is-scanning{ animation: mobile-room-scan .58s cubic-bezier(.2, .7, .2, 1) both; }
+.room-floor-art{ top: 65%; height: 35%; clip-path: none; }
+.room-rug-art{ left: 59%; top: 70%; width: 39%; height: 22%; }
+.room-wall-art{ left: 24%; top: 25%; width: 34%; height: 22%; }
+}
+@media (prefers-reduced-motion: reduce){
+.room.is-scanning{ animation: none; }
+}
