@@ -1,21 +1,26 @@
-# MAKA-STAV — ukázkový web
+# MAKA-STAV — statický web a obsahový model
 
-Statický web pro rekonstrukce bytů a koupelen v Praze a okolí. Spuštění bez instalace balíčků: `node serve.mjs`, potom `http://127.0.0.1:4173/`.
+Projekt je statický HTML/CSS/JS bez CMS a bez balíčků. Spuštění: `node serve.mjs` (standardně `http://127.0.0.1:4173/`; port lze změnit proměnnou `PORT`). Nasazovanou složkou je `dist/`.
 
 ## Struktura
 
-- `dist/index.html` — obsah, navigace, formulář a vrstvená ilustrace pokoje.
-- `dist/redesign.css` — barvy, typografie, layout a responzivní komponenty.
-- `dist/room.css` — konsolidované styly původní vrstvené ilustrace pokoje.
-- `dist/scenes.js` — sedm etap a jejich texty.
-- `dist/app.js` — přímé přepínání etap, mobilní menu a příprava e-mailu.
-- `dist/references-data.js` — snadno rozšiřitelná data ukázek; položky jsou výslovně označené jako demo.
-- `dist/references.js` a `dist/references.css` — porovnání před/po, carousel a detail jednotlivé ukázky.
+- `dist/index.html`, `redesign.css`, `v3.css` — homepage a vizuální systém.
+- `dist/content-data.js` — služby, šest kroků, popisky etap a model pro realizace, partnery, články a návrhy interiérů. Veřejně se zobrazí jen položky se `status: 'published'`.
+- `dist/v3.js` — filtrování a rozbalování Service Wall, časová osa, propojení poptávky a podmíněné veřejné sekce.
+- `dist/scenes.js`, `room.css`, `app.js` — zachovaná ilustrace sedmi etap a ovládání pokoje.
+- `dist/references-data.js`, `references.js`, `references.css` — galerie před/po. Dvojice snímků jsou generované vizualizace, **nejde o zakázky MAKA-STAV**.
+- `tools/generate-content-pages.mjs` — generuje `/realizace/`, `/blog/`, kategorie a detaily pro schválené položky. Při změně dat spustit `node tools/generate-content-pages.mjs`.
 
-Návštěvník vybírá etapu kliknutím na její tlačítko nebo šipkami. Stránka se při tom automaticky neposouvá a běžný scroll etapu nemění.
+Bez ověřených fotografií a článků nejsou realizace ani blog na homepage a v navigaci. Připravené podstránky mají `noindex` a neobsahují falešné karty. Stránka se generuje i bez obsahu, aby šlo zkontrolovat strukturu. Při přidání schváleného záznamu je potřeba dodat `slug`, kvalitní fotografie, ověřený popis a poté spustit generátor. Do produkční navigace lze tyto stránky zařadit až po kontrole obsahu.
 
-Fotografie v sekci před/po jsou **vygenerované demonstrační vizualizace**, nikoli zakázky MAKA-STAV. Fotografie v úvodu a na kartách jsou také ilustrační. Skutečné realizace ani klientské recenze zatím nejsou zveřejněny. Poptávkový formulář připraví zprávu v poštovní aplikaci návštěvníka; neodesílá údaje na server a nepotvrzuje odeslání. Před produkčním spuštěním je potřeba doplnit skutečné fotografie, ověřené firemní údaje, doručování formuláře a právní informace o zpracování osobních údajů.
+## Formulář
 
-Skutečnou zakázku přidejte jako další položku v `dist/references-data.js`: zadejte ověřený název, kategorii, popis a fotografie stejného prostoru před a po. `location`, `year` a `area` ponechte `null`, pokud nejsou potvrzené. Pro samostatné fotografie použijte objekty `{ src, alt, type, position: 'center' }`, nastavte `isDemo: false` a do `galleryImages` zařaďte jen snímky dané zakázky. Pokud úhly záběrů nesouhlasí, nepoužívejte překryvné porovnání bez úpravy prezentace.
+Formulář nyní **neodesílá na server**: po validaci připraví e-mail v poštovní aplikaci návštěvníka a jasně o tom informuje. Přímé odeslání je připravené přes `formEndpoint` v `content-data.js`; endpoint musí být HTTPS a vracet JSON `{ "ok": true }` až po úspěšném doručení. Před zapnutím je nutný server s ochranou proti spamu, ověřená adresa příjemce, souhlas s nakládáním s údaji a provozní kontrola. Přílohy nejsou zapnuté, protože chybí bezpečné úložiště.
 
-Web používá relativní cesty, aby fungoval také v podadresáři GitHub Pages `/maka-stav-demo/`.
+## Vydání a SEO
+
+Demo obsahuje `noindex`, protože obsahuje vizualizace a rozpracované podstránky. `robots.txt` blokuje nedokončené podstránky; `sitemap.xml` je základ pro budoucí ostrou doménu. Před veřejnou indexací je potřeba přepnout canonical na finální doménu a upravit robots/sitemap. Telefon a e-mail byly ověřeny na původním webu 28. 10. 2026. Původní WordPress URL jsou zdokumentované v `docs/redirect-map.md`; přesměrování na jejich doméně nebyla nasazena.
+
+## Chybějící podklady
+
+Skutečné dvojice fotografií před/po, dokončené realizace, potvrzené profese a designoví partneři, jejich jména a loga, schválené články, další firemní údaje, backend formuláře a právní texty k osobním údajům. Nevkládat vymyšlené reference, statistiky ani partnerství.

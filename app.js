@@ -80,6 +80,7 @@
       bar.style.setProperty('--fill', i <= index ? '1' : '0');
     });
     room.dataset.stage = String(index);
+    document.dispatchEvent(new CustomEvent('maka:stage', { detail: { index } }));
     const clamp = value => Math.max(0, Math.min(1, value));
     room.style.setProperty('--story-progress', Math.max(0, Math.min(1, p)));
     room.style.setProperty('--story-progress-percent', `${Math.max(0, Math.min(1, p)) * 100}%`);
@@ -168,7 +169,7 @@
   for (const input of ['name', 'phone']) {
     document.querySelector(`#inquiry-form [name="${input}"]`).addEventListener('input', event => event.currentTarget.setCustomValidity(''));
   }
-  document.querySelector('#inquiry-form').addEventListener('submit', event => {
+  document.querySelector('#inquiry-form').addEventListener('submit', async event => {
     event.preventDefault();
     const form = event.currentTarget;
     if (form.elements.website.value) return;
@@ -179,6 +180,29 @@
     phone.setCustomValidity(/^[+]?[-0-9 ()]+$/.test(phone.value.trim()) && digits.length >= 9 && digits.length <= 15 ? '' : 'Zadejte platné telefonní číslo.');
     if (!form.reportValidity()) return;
     const values = new FormData(form);
+    const endpoint = window.MAKA_CONTENT?.formEndpoint;
+    if (endpoint) {
+      if (!/^https:\/\//.test(endpoint)) {
+        status.textContent = 'Odesílání není správně nastavené. Kontaktujte nás prosím telefonicky nebo e-mailem.';
+        return;
+      }
+      const payload = Object.fromEntries(['name','phone','email','service','location','message'].map(key => [key, String(values.get(key) || '').trim().slice(0, key === 'message' ? 5000 : 250)]));
+      const submit = form.querySelector('button[type="submit"]');
+      submit.disabled = true;
+      status.textContent = 'Odesíláme poptávku…';
+      try {
+        const response = await fetch(endpoint, {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),credentials:'omit'});
+        const result = await response.json();
+        if (!response.ok || result.ok !== true) throw new Error('Delivery failed');
+        form.reset();
+        status.textContent = 'Poptávka byla odeslána. Děkujeme, ozveme se vám.';
+      } catch {
+        status.textContent = 'Poptávku se nepodařilo odeslat. Zavolejte nám nebo nám napište e-mail.';
+      } finally {
+        submit.disabled = false;
+      }
+      return;
+    }
     const subject = encodeURIComponent(`Nezávazná poptávka — ${values.get('name')}`);
     const body = encodeURIComponent([
       `Jméno: ${values.get('name')}`,

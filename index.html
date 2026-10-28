@@ -4,22 +4,26 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#F5F3EE">
+  <meta name="robots" content="noindex,follow">
   <meta name="description" content="MAKA-STAV provádí rekonstrukce bytů, koupelen a stavební práce v Praze a okolí. Popište nám svůj projekt a domluvme další postup.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="MAKA-STAV | Rekonstrukce bytů a koupelen v Praze">
-  <meta property="og:description" content="Poctivé rekonstrukce bytů a koupelen v Praze a okolí. Nezávazně s námi proberte svůj projekt.">
-  <meta property="og:image" content="https://shadowvillee.github.io/maka-stav-demo/public/images/gallery-contact.png">
-  <title>Rekonstrukce bytů a koupelen v Praze | MAKA-STAV</title>
+  <meta property="og:title" content="MAKA-STAV | Rekonstrukce bytů a domů v Praze">
+  <meta property="og:description" content="Poctivé rekonstrukce bytů a domů v Praze a okolí. Od drobných oprav po kompletní proměnu.">
+  <meta property="og:image" content="https://maka-stav-demo-rekonstrukce.shadowville.chatgpt.site/public/images/gallery-contact.jpg">
+  <title>Rekonstrukce bytů a domů Praha | MAKA-STAV</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="room.css">
   <link rel="stylesheet" href="redesign.css">
-  <link rel="stylesheet" href="references.css">
+  <link rel="stylesheet" href="references.css"><link rel="stylesheet" href="v3.css">
   <script src="scenes.js" defer></script>
+  <script src="content-data.js" defer></script>
   <script src="app.js" defer></script>
   <script src="references-data.js" defer></script>
-  <script src="references.js" defer></script>
+  <script src="references.js" defer></script><script src="v3.js" defer></script>
+<link rel="canonical" href="https://maka-stav-demo-rekonstrukce.shadowville.chatgpt.site/">
+  <meta property="og:url" content="https://maka-stav-demo-rekonstrukce.shadowville.chatgpt.site/">
 </head>
 <body>
   <a class="skip-link" href="#main">Přeskočit na obsah</a>
@@ -28,39 +32,52 @@
       <a class="brand" href="#top" aria-label="MAKA-STAV – úvod"><img src="public/images/logos/maka-stav-light.png" alt="MAKA-STAV"></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Otevřít navigaci"><span></span><span></span></button>
       <nav class="main-nav" id="main-nav" aria-label="Hlavní navigace">
-        <a href="#sluzby">Služby</a><a href="#postup">Jak pracujeme</a><a href="#ukazky">Ukázky</a><a href="#firma">O nás</a><a href="#kontakt">Kontakt</a>
+        <a href="#sluzby">Služby</a><a href="#ukazky">Před a po</a><a href="#postup">Jak pracujeme</a><a href="#firma">O nás</a><a href="#kontakt">Kontakt</a><div class="nav-dropdown" id="blog-nav" hidden><button type="button" aria-expanded="false" aria-controls="blog-menu">Blog ▾</button><div id="blog-menu"><a href="blog/">Všechny články</a><a href="blog/rady-a-tipy/">Rady a tipy</a><a href="blog/aktuality/">Aktuality</a></div></div>
         <a class="button button-primary nav-cta" href="#poptavka">Nezávazná poptávka <span aria-hidden="true">↗</span></a>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <section class="hero" aria-labelledby="hero-title">
+<section class="hero" aria-labelledby="hero-title">
       <div class="hero-copy container">
         <div class="hero-content">
-          <p class="eyebrow">MAKA-STAV · Praha a okolí</p>
-          <h1 id="hero-title">Poctivé rekonstrukce bytů a koupelen.</h1>
-          <p class="hero-tagline">Z holých zdí tvoříme domov.</p>
-          <p class="hero-lead">Od prvních úprav až po dokončovací práce. Zakládáme si na kvalitním řemesle, osobním přístupu a férové domluvě.</p>
-          <div class="hero-actions"><a class="button button-primary" href="#poptavka">Nezávazně poptat rekonstrukci <span aria-hidden="true">↗</span></a><a class="button button-secondary" href="#sluzby">Prohlédnout služby</a></div>
+          <p class="eyebrow">Česká stavební firma · Praha a okolí</p>
+          <h1 id="hero-title">Poctivé rekonstrukce bytů a domů.</h1>
+          <p class="hero-tagline">Od drobných oprav až po kompletní rekonstrukce na klíč.</p>
+          <p class="hero-lead">Jsme česká stavební firma působící v Praze a okolí. Věnujeme se menším stavebním úpravám i kompletním rekonstrukcím bytů a domů. Zakládáme si na kvalitní práci, osobním přístupu a férové domluvě.</p>
+          <div class="hero-actions"><a class="button button-primary" href="#poptavka">Nezávazná poptávka <span aria-hidden="true">↗</span></a><a class="button button-secondary" href="#sluzby">Prohlédnout naše služby</a></div>
           <a class="inline-link" href="#postup">Jak probíhá spolupráce <span aria-hidden="true">→</span></a>
         </div>
-        <div class="hero-visual" role="img" aria-label="Ilustrační podoba hotového interiéru po rekonstrukci"><span>Ilustrační fotografie</span></div>
+        <div class="hero-visual" role="img" aria-label="Ilustrační podoba hotového interiéru po rekonstrukci"></div>
       </div>
     </section>
-
-    <section class="service-preview section" id="sluzby" aria-labelledby="preview-title">
+<section class="references section" id="ukazky" aria-labelledby="references-title" data-nosnippet>
       <div class="container">
-        <div class="section-heading"><div><p class="eyebrow">Co děláme</p><h2 id="preview-title">Rekonstrukce, které dávají smysl.</h2></div><p>Od jedné místnosti po celý byt. Rozsah prací přizpůsobíme prostoru a domluvenému zadání.</p></div>
-        <div class="preview-grid">
-          <a class="preview-card" href="#service-byt"><span class="card-number">01</span><h3>Rekonstrukce bytů</h3><p>Kompletní úpravy interiérů od přípravných prací po finální dokončení.</p><span class="card-arrow" aria-hidden="true">↗</span></a>
-          <a class="preview-card" href="#service-koupelna"><span class="card-number">02</span><h3>Rekonstrukce koupelen</h3><p>Obklady, dlažby, rozvody, sanita a návazné stavební práce.</p><span class="card-arrow" aria-hidden="true">↗</span></a>
-          <a class="preview-card" href="#service-stavebni"><span class="card-number">03</span><h3>Další stavební práce</h3><p>Podlahy, příčky, povrchy, sádrokartony a související úpravy.</p><span class="card-arrow" aria-hidden="true">↗</span></a>
+        <div class="section-heading references-heading"><div><p class="eyebrow">Inspirace pro váš prostor</p><h2 id="references-title">Podívejte se, jak se může prostor proměnit.</h2></div></div>
+        <p class="references-disclaimer">Inspirativní vizualizace možných proměn. Snímky nepocházejí z realizací MAKA-STAV.</p>
+        <div class="references-layout"><div class="references-carousel" aria-label="Inspirativní proměny před a po">
+          <button class="reference-peek reference-peek-prev" id="reference-peek-prev" type="button" aria-label="Předchozí ukázka"><span class="reference-peek-photo" aria-hidden="true"></span><span class="reference-peek-caption"></span></button>
+          <div class="reference-center">
+            <div class="comparison" id="reference-comparison" style="--split: 50%" role="group" aria-label="Porovnání před a po">
+              <div class="comparison-photo comparison-after" role="img" aria-label="Stav po úpravě"></div>
+              <div class="comparison-photo comparison-before" role="img" aria-label="Původní stav"></div>
+              <span class="comparison-tag comparison-tag-before">PŘED</span><span class="comparison-tag comparison-tag-after">PO</span>
+              <span class="comparison-divider" aria-hidden="true"><span class="comparison-handle">‹ ›</span></span>
+              <input class="comparison-range" id="comparison-range" type="range" min="0" max="100" step="1" value="50" aria-label="Poměr zobrazení před a po, vlevo před, vpravo po">
+            </div>
+            <p class="comparison-help">Posunutím porovnejte prostor před a po.</p>
+            <div class="reference-navigation"><span class="reference-count" id="reference-count" aria-live="polite">01 / 03</span><div class="reference-progress" id="reference-progress" aria-label="Aktivní ukázka"></div><div class="reference-arrows"><button id="reference-prev" type="button" aria-label="Předchozí ukázka">←</button><button id="reference-next" type="button" aria-label="Další ukázka">→</button></div></div>
+          </div>
+          <button class="reference-peek reference-peek-next" id="reference-peek-next" type="button" aria-label="Další ukázka"><span class="reference-peek-photo" aria-hidden="true"></span><span class="reference-peek-caption"></span></button>
         </div>
+        <div class="reference-info"><div class="reference-summary"><p class="reference-category" id="reference-category"></p><h3 id="reference-title" aria-live="polite"></h3><p class="reference-meta" id="reference-meta"></p><p class="reference-description" id="reference-description"></p><div class="reference-actions"><button class="button button-primary" id="reference-detail-open" type="button">Prohlédnout proměnu <span aria-hidden="true">↗</span></button><a class="button button-secondary reference-inquiry" id="reference-inquiry" href="#poptavka">Chci podobnou proměnu <span aria-hidden="true">→</span></a></div></div><div class="reference-work"><h4>Možný rozsah prací</h4><ul id="reference-work-items"></ul></div></div></div>
       </div>
     </section>
-
-    <section class="story section" id="pribeh" aria-labelledby="story-title">
+<section class="scope section" id="rozsah" aria-labelledby="scope-title"><div class="container"><div class="section-heading"><div><h2 id="scope-title">Malá úprava nebo velká rekonstrukce?</h2><p class="scope-subtitle">Pomůžeme vám s obojím.</p></div></div><div class="scope-grid"><article class="scope-minor"><span class="scope-mark" aria-hidden="true">↗</span><h3>Drobné opravy a dokončovací práce</h3><p>Ne vždy je potřeba kompletní rekonstrukce. Pomůžeme vám také s menšími úpravami, které zlepší vzhled nebo funkčnost bydlení.</p><ul><li>Malování a opravy stěn</li><li>Štukování a sádrokarton</li><li>Podlahy a drobné stavební úpravy</li><li>Dokončovací práce</li></ul><a class="button button-secondary" href="#poptavka" data-inquiry="Drobné opravy a dokončení">Poptat menší práci ↗</a></article><article class="scope-major"><span class="scope-mark" aria-hidden="true">⌁</span><h3>Kompletní rekonstrukce na klíč</h3><p>U rozsáhlejší rekonstrukce sladíme návaznost stavebních prací a řemesel. Od přípravy prostoru a rozvodů po povrchy, vybavení a finální dokončení.</p><ul><li>Plánování a příprava</li><li>Bourací, stavební a instalační práce</li><li>Podlahy, obklady a výmalby</li><li>Montáže a finální dokončení</li></ul><a class="button button-primary" href="#poptavka" data-inquiry="Kompletní rekonstrukce bytu">Poptat rekonstrukci na klíč ↗</a></article></div></div></section>
+<section class="service-wall section" id="sluzby" aria-labelledby="services-title"><div class="container"><div class="section-heading"><div><h2 id="services-title">Co všechno pro vás můžeme udělat</h2></div><p>Od jednotlivých řemeslných prací až po kompletní proměnu interiéru. Vyberte službu a zjistěte, co zahrnuje.</p></div><div class="service-filters" id="service-filters" role="group" aria-label="Filtrovat služby"></div><div class="service-wall-grid" id="service-wall-grid"></div></div></section>
+<section class="design-section section" id="interierovy-design" aria-labelledby="design-title"><div class="container design-layout"><div class="design-copy"><p class="design-overline">Interiérový design a vizualizace</p><h2 id="design-title">Nejdřív si svůj nový domov představte. Pak ho společně vytvoříme.</h2><p>Podle potřeb projektu můžeme ve spolupráci s interiérovými designéry navázat návrhem dispozice, výběrem materiálů a vizualizací budoucího prostoru na samotnou rekonstrukci.</p><ul><li>Konzultace návrhu a dispozice</li><li>Barvy, materiály a osvětlení</li><li>3D vizualizace interiéru</li><li>Návaznost návrhu na realizaci</li></ul><p class="design-caveat">Konkrétní rozsah návrhu a zapojení partnerů domluvíme podle zakázky.</p><a class="button button-primary" href="#poptavka" data-inquiry="Interiérový design a vizualizace">Chci návrh interiéru ↗</a></div><div class="design-visual" role="img" aria-label="Inspirativní vizualizace světlého interiéru"></div></div></section>
+<section class="story section" id="pribeh" aria-labelledby="story-title">
       <div class="container">
         <div class="section-heading story-heading"><div><p class="eyebrow">Interaktivní proměna</p><h2 id="story-title">Jeden prostor. Sedm etap.</h2></div><p>Podívejte se, jak se místnost mění. Etapy můžete vybírat v libovolném pořadí.</p></div>
         <div class="story-layout">
@@ -81,14 +98,14 @@
           <div class="room-furniture" aria-hidden="true"><img class="room-plant-art" src="public/images/scenes/objects/plant-v2.png" alt=""><img class="room-sofa-art" src="public/images/scenes/objects/sofa-v2.png" alt=""><div class="table"></div></div>
           <div class="room-artwork" id="room-artwork" aria-hidden="true"></div>
           <div class="room-vignette"></div>
-          <span class="room-caption">ILUSTRATIVNÍ PROMĚNA PROSTORU</span>
+          <span class="room-caption">Proměna prostoru</span><div class="room-callouts" id="room-callouts" aria-hidden="true"></div>
         </div>
           </div>
           <div class="story-card" id="stage-panel" role="tabpanel" aria-labelledby="stage-tab-1" aria-live="polite" aria-atomic="true">
             <p class="stage-kicker" id="stage-kicker">01 / 07 · Hrubá stavba</p>
             <h3 id="stage-title">Hrubá stavba</h3>
             <p id="stage-copy">Všechno začíná přípravou prostoru. Bourací a stavební práce připraví základ pro novou podobu interiéru.</p>
-            <a class="inline-link" href="#sluzby-detail">Prohlédnout služby <span aria-hidden="true">→</span></a>
+            <div class="stage-work"><h4>Typické práce</h4><ul id="stage-work-items"></ul></div><a class="inline-link" href="#sluzby" id="stage-service-link">Související služba <span aria-hidden="true">→</span></a>
           </div>
         </div>
         <div class="story-controls" aria-label="Etapy rekonstrukce">
@@ -99,51 +116,16 @@
         </div>
       </div>
     </section>
-
-    <section class="services section" id="sluzby-detail" aria-labelledby="services-title">
-      <div class="container">
-        <div class="section-heading"><div><p class="eyebrow">Naše služby</p><h2 id="services-title">Co pro vás můžeme udělat</h2></div><p>Od rekonstrukce koupelny až po kompletní proměnu bytu.</p></div>
-        <div class="service-grid">
-          <article class="service-card" id="service-byt"><div class="service-image photo-finished" role="img" aria-label="Ilustrační dokončený interiér"></div><div class="service-card-body"><span class="card-number">01</span><h3>Kompletní rekonstrukce bytů</h3><p>Navazující práce od přípravy a rozvodů po povrchy, podlahy a dokončení interiéru.</p><a class="inline-link" href="#poptavka" data-service="Kompletní rekonstrukce bytu">Poptat službu <span aria-hidden="true">→</span></a></div></article>
-          <article class="service-card" id="service-koupelna"><div class="service-image photo-bathroom" role="img" aria-label="Ilustrační dokončená koupelna"></div><div class="service-card-body"><span class="card-number">02</span><h3>Rekonstrukce koupelen a jader</h3><p>Úprava prostoru, rozvodů, hydroizolace, obkladů i finálního vybavení.</p><a class="inline-link" href="#poptavka" data-service="Rekonstrukce koupelny">Poptat službu <span aria-hidden="true">→</span></a></div></article>
-          <article class="service-card" id="service-stavebni"><div class="service-image photo-process" role="img" aria-label="Ilustrační prostor během rekonstrukce"></div><div class="service-card-body"><span class="card-number">03</span><h3>Stavební a dokončovací práce</h3><p>Zednické úpravy, povrchy, obklady, podlahy, příčky a sádrokartony.</p><a class="inline-link" href="#poptavka" data-service="Stavební a dokončovací práce">Poptat službu <span aria-hidden="true">→</span></a></div></article>
-        </div>
-        <div class="additional-services"><h3>Také vám pomůžeme s</h3><ul><li>Podlahami a dlažbou</li><li>Omítkami a malováním</li><li>Příčkami a sádrokartony</li><li>Rozvody a instalacemi v rámci rekonstrukce</li></ul></div>
-      </div>
-    </section>
-
-    <section class="references section" id="ukazky" aria-labelledby="references-title">
-      <div class="container">
-        <div class="section-heading references-heading"><div><p class="eyebrow">Reference · ukázkový režim</p><h2 id="references-title">Ukázka galerie <span class="reference-title-break">před a po</span></h2></div><p>Podívejte se, jak se může prostor změnit od původního stavu po dokončení. Posuvník umožňuje porovnat obě podoby.</p></div>
-        <p class="references-disclaimer">Fotografie v této sekci jsou demonstrační vizualizace, nikoli doložené realizace MAKA-STAV. Skutečné zakázky doplníme po dodání ověřených podkladů.</p>
-        <div class="references-carousel" aria-label="Demonstrační galerie před a po">
-          <button class="reference-peek reference-peek-prev" id="reference-peek-prev" type="button" aria-label="Předchozí ukázka"><span class="reference-peek-photo" aria-hidden="true"></span><span class="reference-peek-caption"></span></button>
-          <div class="reference-center">
-            <div class="comparison" id="reference-comparison" style="--split: 50%" role="group" aria-label="Porovnání před a po">
-              <div class="comparison-photo comparison-after" role="img" aria-label="Stav po úpravě"></div>
-              <div class="comparison-photo comparison-before" role="img" aria-label="Původní stav"></div>
-              <span class="comparison-tag comparison-tag-before">PŘED</span><span class="comparison-tag comparison-tag-after">PO</span>
-              <span class="comparison-divider" aria-hidden="true"><span class="comparison-handle">‹ ›</span></span>
-              <input class="comparison-range" id="comparison-range" type="range" min="0" max="100" step="1" value="50" aria-label="Poměr zobrazení před a po, vlevo před, vpravo po">
-            </div>
-            <p class="comparison-help">Táhněte posuvníkem, klepněte na fotografii nebo použijte klávesy šipek.</p>
-            <div class="reference-navigation"><span class="reference-count" id="reference-count" aria-live="polite">01 / 03</span><div class="reference-progress" id="reference-progress" aria-label="Aktivní ukázka"></div><div class="reference-arrows"><button id="reference-prev" type="button" aria-label="Předchozí ukázka">←</button><button id="reference-next" type="button" aria-label="Další ukázka">→</button></div></div>
-          </div>
-          <button class="reference-peek reference-peek-next" id="reference-peek-next" type="button" aria-label="Další ukázka"><span class="reference-peek-photo" aria-hidden="true"></span><span class="reference-peek-caption"></span></button>
-        </div>
-        <div class="reference-info"><div class="reference-summary"><p class="reference-category" id="reference-category"></p><h3 id="reference-title" aria-live="polite"></h3><p class="reference-meta" id="reference-meta"></p><p class="reference-description" id="reference-description"></p><div class="reference-actions"><button class="button button-primary" id="reference-detail-open" type="button">Zobrazit celou ukázku <span aria-hidden="true">↗</span></button><a class="button button-secondary reference-inquiry" id="reference-inquiry" href="#poptavka">Chci podobnou rekonstrukci <span aria-hidden="true">→</span></a></div></div><div class="reference-work"><h4>Co může rekonstrukce zahrnovat</h4><ul id="reference-work-items"></ul></div></div>
-      </div>
-    </section>
-    <dialog class="reference-dialog" id="reference-dialog" aria-labelledby="reference-dialog-title"><div class="reference-dialog-inner"><header class="reference-dialog-head"><div><p class="eyebrow">Demonstrační fotografie</p><h2 id="reference-dialog-title"></h2><p id="reference-dialog-description"></p></div><button class="reference-dialog-close" type="button" aria-label="Zavřít detail">×</button></header><div class="reference-dialog-photo" role="img" aria-label=""></div><div class="reference-dialog-nav"><button id="reference-dialog-prev" type="button" aria-label="Předchozí fotografie">←</button><span id="reference-dialog-count" aria-live="polite"></span><button id="reference-dialog-next" type="button" aria-label="Další fotografie">→</button></div><div class="reference-dialog-thumbs" id="reference-dialog-thumbs" aria-label="Fotografie této ukázky"></div></div></dialog>
-
-    <section class="process section" id="postup" aria-labelledby="process-title"><div class="container"><div class="section-heading"><div><p class="eyebrow">Jak spolupráce probíhá</p><h2 id="process-title">Tři jednoduché kroky</h2></div><p>Od prvního kontaktu po zahájení prací budete vědět, co je další krok.</p></div><div class="process-grid"><article><span>01</span><h3>Ozvete se nám</h3><p>Popíšete, co plánujete rekonstruovat.</p></article><article><span>02</span><h3>Probereme rozsah prací</h3><p>Domluvíme podrobnosti a další postup.</p></article><article><span>03</span><h3>Pustíme se do realizace</h3><p>Po odsouhlasení rozsahu prací navážeme samotnou rekonstrukcí.</p></article></div><a class="button button-primary" href="#poptavka">Probrat váš projekt <span aria-hidden="true">↗</span></a></div></section>
-
-    <section class="about section" id="firma" aria-labelledby="about-title"><div class="container about-grid"><div><p class="eyebrow">O MAKA-STAV</p><h2 id="about-title">Poctivé řemeslo. Férová domluva.</h2><p>Věnujeme se rekonstrukcím bytů, koupelen a souvisejícím stavebním pracím v Praze a okolí. Každá zakázka začíná společnou domluvou o prostoru a potřebném rozsahu.</p><a class="button button-secondary" href="#kontakt">Kontaktovat nás</a></div><div class="about-note"><span class="about-rule" aria-hidden="true"></span><h3>Na každém detailu záleží.</h3><p>Řemesla na sebe musí navazovat a konkrétní řešení musí odpovídat vašemu prostoru. Rádi s vámi probereme možnosti při osobní domluvě.</p></div></div></section>
-
-    <section class="contact section" id="kontakt" aria-labelledby="contact-title"><div class="container contact-grid"><div><p class="eyebrow">Kontakt</p><h2 id="contact-title">Plánujete rekonstrukci? Pojďme ji probrat.</h2><p>Napište nám pár informací o projektu. Společně domluvíme další postup.</p><a class="button button-primary" href="#poptavka">Nezávazná poptávka <span aria-hidden="true">↗</span></a></div><div class="contact-details"><a href="tel:+420728479591"><span>Telefon</span><strong>+420 728 479 591</strong></a><a href="mailto:makarastavby@gmail.com"><span>E-mail</span><strong>makarastavby@gmail.com</strong></a><div><span>Působnost</span><strong>Praha a okolí</strong></div></div></div></section>
-
-    <section class="inquiry section" id="poptavka" aria-labelledby="inquiry-title"><div class="container inquiry-grid"><div><p class="eyebrow">Nezávazná poptávka</p><h2 id="inquiry-title">Napište nám o svém projektu.</h2><p>Formulář připraví e-mail ve vašem poštovním programu. Před odesláním ho můžete zkontrolovat a upravit.</p><p class="inquiry-note">Ukázkový web zatím neodesílá údaje přímo na server.</p></div><form class="inquiry-form" id="inquiry-form"><div class="form-grid"><label>Jméno a příjmení <span>*</span><input name="name" autocomplete="name" required placeholder="Vaše jméno"></label><label>Telefon <span>*</span><input name="phone" type="tel" autocomplete="tel" required placeholder="+420"></label><label>E-mail <span>*</span><input name="email" type="email" autocomplete="email" required placeholder="vas@email.cz"></label><label>Typ plánovaných prací<select name="service"><option value="">Vyberte službu</option><option>Kompletní rekonstrukce bytu</option><option>Rekonstrukce koupelny</option><option>Stavební a dokončovací práce</option><option>Podlahářské práce</option><option>Zednické a obkladačské práce</option><option>Ostatní / potřebuji poradit</option></select></label><label class="full-field">Lokalita<input name="location" autocomplete="address-level2" placeholder="Město nebo městská část"></label><label class="full-field">Stručný popis zakázky<textarea name="message" rows="4" placeholder="Co byste chtěli změnit?"></textarea></label></div><p class="privacy-note">Údaje z formuláře se použijí pouze k přípravě e-mailu ve vašem zařízení. Před produkčním provozem doplníme informace o zpracování osobních údajů.</p><button class="button button-primary" type="submit">Připravit e-mail <span aria-hidden="true">↗</span></button><p class="form-status" id="form-status" role="status" aria-live="polite"></p><div class="honeypot" aria-hidden="true"><label>Nechte toto pole prázdné<input name="website" tabindex="-1" autocomplete="off"></label></div></form></div></section>
-  </main>
+<section class="process section" id="postup" aria-labelledby="process-title"><div class="container"><div class="section-heading"><div><h2 id="process-title">Od první myšlenky až po hotový domov.</h2></div><p>Šest kroků spolupráce. Klikněte na krok a podívejte se, co následuje.</p></div><div class="process-timeline" id="process-timeline" role="tablist" aria-label="Šest kroků spolupráce"></div><div class="process-detail" id="process-detail" role="tabpanel" aria-live="polite"></div><a class="inline-link" href="#poptavka">Probrat váš projekt →</a></div></section>
+<section class="published-only section" id="realizace" aria-labelledby="projects-title" hidden><div class="container"><div class="section-heading"><div><h2 id="projects-title">Projekty, za kterými si stojíme.</h2></div></div><div class="published-projects" id="published-projects"></div><a class="inline-link" href="realizace/">Všechny realizace →</a></div></section>
+<section class="partners section" id="partneri" aria-labelledby="partners-title"><div class="container"><div class="section-heading"><div><h2 id="partners-title">Jedna rekonstrukce. Více profesí. Jeden společný cíl.</h2></div><p>Podle rozsahu projektu pomáháme sladit návaznost jednotlivých činností a odborníků.</p></div><div class="partner-scope"><div><h3>Co vše zastřešujeme</h3><p>Stavební a dokončovací práce řešíme podle konkrétního zadání. Odborné profese a návrhy interiéru mohou zajišťovat spolupracující specialisté.</p></div><ul><li>Stavební a bourací práce</li><li>Obklady, dlažby a podlahy</li><li>Malířské a dokončovací práce</li><li>Elektroinstalace a osvětlení*</li><li>Vodoinstalace a sanita*</li><li>Interiérový design a vizualizace*</li></ul></div><p class="partner-note">* Zapojení odborných partnerů závisí na rozsahu zakázky.</p><div class="partner-logos" id="partner-logos" hidden><h3>Naši partneři</h3><div></div></div></div></section>
+<section class="about section" id="firma" aria-labelledby="about-title"><div class="container about-grid"><div><h2 id="about-title">Zkušenosti, na kterých můžete stavět.</h2><p>MAKA-STAV je česká stavební firma působící v Praze a okolí. Máme zkušenosti s rekonstrukcemi bytů, koupelen a souvisejícími stavebními pracemi. Každý projekt vnímáme individuálně a klademe důraz na kvalitní provedení, dobrou komunikaci a pečlivé dokončení.</p><a class="button button-secondary" href="#kontakt">Kontaktovat nás</a></div><div class="about-values"><h3>Na čem nám záleží</h3><ul><li>Osobní přístup</li><li>Pečlivé provedení</li><li>Férová domluva</li></ul></div></div></section>
+<section class="published-only section" id="blog-preview" aria-labelledby="blog-title" hidden><div class="container"><div class="section-heading"><div><h2 id="blog-title">Rady, tipy a aktuality</h2></div></div><div class="published-articles" id="published-articles"></div><a class="inline-link" href="blog/">Všechny články →</a></div></section>
+<section class="faq section" id="faq" aria-labelledby="faq-title"><div class="container faq-layout"><div><h2 id="faq-title">Na co se nás často ptáte</h2><p>Nejčastější otázky k rozsahu, průběhu a plánování rekonstrukce.</p><a class="button button-secondary" href="#poptavka">Zeptat se na svůj projekt</a></div><div class="faq-list"><details><summary>Kolik stojí rekonstrukce bytu?</summary><p>Cena závisí na rozsahu prací, velikosti prostoru, technickém stavu a použitých materiálech. Konkrétní nabídku připravíme po upřesnění zadání.</p></details><details><summary>Děláte také menší stavební práce?</summary><p>Ano. Vedle rozsáhlejších rekonstrukcí se věnujeme také drobným opravám, malování, úpravám povrchů, podlahám a dokončovacím pracím. Možnosti závisí na charakteru zakázky.</p></details><details><summary>Co zahrnuje kompletní rekonstrukce na klíč?</summary><p>Podle rozsahu může zahrnovat přípravu prostoru, bourací práce, stavební úpravy, nové rozvody, koupelnu, podlahy, obklady, výmalbu i dokončení.</p></details><details><summary>Nabízíte také interiérový design?</summary><p>Podle potřeb projektu lze zapojit spolupracující interiérové designéry pro návrh prostoru, výběr materiálů nebo vizualizaci budoucího interiéru.</p></details><details><summary>Jak dlouho trvá rekonstrukce?</summary><p>Délka závisí na rozsahu a složitosti prací. Přibližný harmonogram je možné stanovit po upřesnění zadání.</p></details><details><summary>Musím mít předem hotový projekt?</summary><p>Ne vždy. U menších úprav může stačit domluvený rozsah. Větší dispoziční nebo konstrukční zásahy mohou vyžadovat odborné podklady či projekt.</p></details><details><summary>Provádíte rekonstrukce pouze v Praze?</summary><p>Hlavní oblastí působnosti je Praha a okolí. Vzdálenější lokality posoudíme individuálně.</p></details><details><summary>Mohu během rekonstrukce změnit zadání?</summary><p>Změny probereme podle stavu rozpracovanosti a technických možností. Mohou ovlivnit cenu, harmonogram nebo návaznost prací.</p></details><details><summary>Dokážete zajistit více řemesel?</summary><p>U komplexních projektů pomáháme koordinovat návaznost stavebních, instalačních a dokončovacích prací podle rozsahu zakázky.</p></details><details><summary>Jak si mohu vyžádat nabídku?</summary><p>Zavolejte nám nebo vyplňte poptávku. Popište rozsah prací a lokalitu; následně domluvíme další postup.</p></details></div></div></section>
+<section class="contact section" id="kontakt" aria-labelledby="contact-title"><div class="container contact-grid"><div><p class="eyebrow">Kontakt</p><h2 id="contact-title">Plánujete rekonstrukci? Pojďme ji probrat.</h2><p>Napište nám pár informací o projektu. Společně domluvíme další postup.</p><a class="button button-primary" href="#poptavka">Nezávazná poptávka <span aria-hidden="true">↗</span></a></div><div class="contact-details"><a href="tel:+420728479591"><span>Telefon</span><strong>+420 728 479 591</strong></a><a href="mailto:makarastavby@gmail.com"><span>E-mail</span><strong>makarastavby@gmail.com</strong></a><div><span>Působnost</span><strong>Praha a okolí</strong></div></div></div></section>
+<section class="inquiry section" id="poptavka" aria-labelledby="inquiry-title"><div class="container inquiry-grid"><div><p class="eyebrow">Nezávazná poptávka</p><h2 id="inquiry-title">Napište nám o svém projektu.</h2><p>Formulář připraví e-mail ve vašem poštovním programu. Před odesláním ho můžete zkontrolovat a upravit.</p><p class="inquiry-note">Poptávka se připraví v e-mailovém programu. Serverové odesílání zatím není zapojeno.</p></div><form class="inquiry-form" id="inquiry-form"><div class="form-grid"><label>Jméno a příjmení <span>*</span><input name="name" autocomplete="name" required placeholder="Vaše jméno"></label><label>Telefon <span>*</span><input name="phone" type="tel" autocomplete="tel" required placeholder="+420"></label><label>E-mail <span>*</span><input name="email" type="email" autocomplete="email" required placeholder="vas@email.cz"></label><label>Typ plánovaných prací<select name="service"><option value="">Vyberte službu</option><option>Kompletní rekonstrukce bytu</option><option>Rekonstrukce koupelny</option><option>Stavební a dokončovací práce</option><option>Podlahářské práce</option><option>Zednické a obkladačské práce</option><option>Ostatní / potřebuji poradit</option></select></label><label class="full-field">Lokalita<input name="location" autocomplete="address-level2" placeholder="Město nebo městská část"></label><label class="full-field">Stručný popis zakázky<textarea name="message" rows="4" placeholder="Co byste chtěli změnit?"></textarea></label></div><p class="privacy-note">Údaje z formuláře se použijí pouze k přípravě e-mailu ve vašem zařízení. Zprávu odešlete až po kontrole ve svém e-mailu.</p><button class="button button-primary" type="submit">Připravit e-mail <span aria-hidden="true">↗</span></button><p class="form-status" id="form-status" role="status" aria-live="polite"></p><div class="honeypot" aria-hidden="true"><label>Nechte toto pole prázdné<input name="website" tabindex="-1" autocomplete="off"></label></div></form></div></section>
+<dialog class="reference-dialog" id="reference-dialog" aria-labelledby="reference-dialog-title"><div class="reference-dialog-inner"><header class="reference-dialog-head"><div><p class="eyebrow">Inspirativní vizualizace</p><h2 id="reference-dialog-title"></h2><p id="reference-dialog-description"></p></div><button class="reference-dialog-close" type="button" aria-label="Zavřít detail">×</button></header><div class="reference-dialog-photo" role="img" aria-label=""></div><div class="reference-dialog-nav"><button id="reference-dialog-prev" type="button" aria-label="Předchozí fotografie">←</button><span id="reference-dialog-count" aria-live="polite"></span><button id="reference-dialog-next" type="button" aria-label="Další fotografie">→</button></div><div class="reference-dialog-thumbs" id="reference-dialog-thumbs" aria-label="Fotografie této ukázky"></div></div></dialog>
+</main>
   <footer class="site-footer"><div class="container footer-inner"><a href="#top" aria-label="MAKA-STAV – zpět na úvod"><img src="public/images/logos/maka-stav-light.png" alt="MAKA-STAV"></a><p>Rekonstrukce bytů a koupelen<br>Praha a okolí</p><span>© <span id="year"></span> MAKA-STAV</span><a href="#top">Zpět nahoru ↑</a></div></footer>
 </body>
 </html>

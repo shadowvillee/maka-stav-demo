@@ -66,7 +66,7 @@ h3 { font-size: clamp(23px, 2.2vw, 30px); line-height: 1.17; }
 .hero-lead { max-width: 590px; margin: 0 0 28px; color: var(--muted); font-size: clamp(17px, 1.3vw, 19px); line-height: 1.58; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 13px; }
 .hero .inline-link { color: var(--ink); }
-.hero-visual { position: relative; align-self: stretch; min-height: 440px; background: #b3a28f url('public/images/gallery-contact.png') 100% 100%/200% 200% no-repeat; border-radius: 4px; box-shadow: 0 18px 48px rgba(45,36,25,.14); }
+.hero-visual { position: relative; align-self: stretch; min-height: 440px; background: #b3a28f url('public/images/gallery-contact.jpg') 100% 100%/200% 200% no-repeat; border-radius: 4px; box-shadow: 0 18px 48px rgba(45,36,25,.14); }
 .hero-visual::before { content: ''; position: absolute; inset: 0; border: 1px solid rgba(27,27,27,.12); border-radius: inherit; }
 .hero-visual span { position: absolute; bottom: 16px; right: 16px; padding: 5px 9px; background: rgba(27,27,27,.75); color: white; font: 400 12px/1.2 var(--mono); }
 
@@ -81,7 +81,7 @@ h3 { font-size: clamp(23px, 2.2vw, 30px); line-height: 1.17; }
 .card-arrow { position: absolute; right: 24px; bottom: 22px; color: var(--brick); font-size: 22px; }
 .services { background: var(--paper); }
 .service-card { display: flex; flex-direction: column; overflow: hidden; background: white; border: 1px solid var(--line); border-radius: 4px; box-shadow: 0 10px 24px rgba(38,32,25,.05); }
-.service-image { background-image: url('public/images/gallery-contact.png'); background-size: 200% 200%; background-repeat: no-repeat; }
+.service-image { background-image: url('public/images/gallery-contact.jpg'); background-size: 200% 200%; background-repeat: no-repeat; }
 .photo-start { background-position: 0 0; }
 .photo-process { background-position: 100% 0; }
 .photo-bathroom { background-position: 0 100%; }

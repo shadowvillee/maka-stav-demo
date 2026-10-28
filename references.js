@@ -78,10 +78,10 @@
     $('#reference-count').textContent = count(index, references.length);
     renderProgress(index);
 
-    $('#reference-category').textContent = `${reference.category}${reference.isDemo ? ' · demonstrační ukázka' : ''}`;
+    $('#reference-category').textContent = `${reference.category}${reference.isDemo ? ' · návrh proměny' : ''}`;
     $('#reference-title').textContent = reference.title;
     const metadata = [reference.location, reference.year, reference.area].filter(Boolean);
-    $('#reference-meta').textContent = metadata.length ? metadata.join(' · ') : 'Demonstrační vizualizace · údaje o skutečné zakázce nejsou k dispozici';
+    $('#reference-meta').textContent = metadata.length ? metadata.join(' · ') : 'Inspirace pro plánování vlastního prostoru';
     $('#reference-description').textContent = reference.description;
     $('#reference-work-items').replaceChildren(...reference.workItems.map(item => {
       const li = document.createElement('li');
@@ -135,7 +135,7 @@
     detailOpener = $('#reference-detail-open');
     $('#reference-dialog-title').textContent = detailReference.title;
     $('#reference-dialog-description').textContent = detailReference.isDemo
-      ? 'Demonstrační fotografie před a po. Nejde o doloženou realizaci MAKA-STAV.'
+      ? 'Vizualizace možného řešení. Nejde o doloženou realizaci MAKA-STAV.'
       : detailReference.description;
     detailThumbs.replaceChildren(...detailReference.galleryImages.map((photo, index) => {
       const thumb = document.createElement('button');

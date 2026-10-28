@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /realizace/
+Disallow: /blog/
+Sitemap: https://maka-stav-demo-rekonstrukce.shadowville.chatgpt.site/sitemap.xml
