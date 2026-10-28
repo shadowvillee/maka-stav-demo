@@ -150,3 +150,22 @@ body { font-size: 17px; line-height: 1.62; }
 @media(max-width:380px){.service-filters button{font-size:15px}.service-tile{min-height:130px}.service-tile svg{width:29px;height:29px}.partner-scope ul{grid-template-columns:1fr}.design-copy ul{grid-template-columns:1fr}.process-timeline button strong{font-size:15px}.reference-work ul{grid-template-columns:1fr}}
 @media(max-width:700px){.service-tile span{font-size:15px}}
 @media(prefers-reduced-motion:reduce){.reveal-ready{opacity:1;transform:none}.service-detail{animation:none}}
+
+/* Five owner-approved trades; their tasks live inside the existing inline detail. */
+.service-tile { min-height: 164px; gap: 14px; }
+.service-tile small { margin-top: auto; color: #69635d; font: 500 13px/1.2 var(--sans); }
+.service-tile.is-active small { color: #fff; }
+.service-detail-image { position: relative; min-height: 300px; margin: 0; overflow: hidden; }
+.service-detail-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.service-detail-image figcaption { position: absolute; left: 14px; bottom: 14px; padding: 7px 9px; background: rgba(28,27,25,.82); color: white; font-size: 12px; }
+.service-detail ul { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; margin: 22px 0 24px; }
+.service-detail li { display: grid; align-content: start; gap: 5px; padding: 12px 13px; border: 1px solid #5e5a54; background: #33312d; }
+.service-detail li strong { font-size: 15px; line-height: 1.3; }
+.service-detail li span { color: #d1cbc3; font-size: 14px; line-height: 1.4; }
+@media(max-width:700px){
+  .service-tile { min-height: 145px; }
+  .service-detail-image { min-height: 210px; }
+  .service-detail-image img { position: relative; height: 210px; }
+  .service-detail ul { grid-template-columns: 1fr; }
+}
+@media(max-width:380px){.service-tile{min-height:145px;padding:10px}.service-tile span{font-size:14px}}

@@ -5,8 +5,9 @@ Projekt je statický HTML/CSS/JS bez CMS a bez balíčků. Spuštění: `node se
 ## Struktura
 
 - `dist/index.html`, `redesign.css`, `v3.css` — homepage a vizuální systém.
-- `dist/content-data.js` — služby, šest kroků, popisky etap a model pro realizace, partnery, články a návrhy interiérů. Veřejně se zobrazí jen položky se `status: 'published'`.
-- `dist/v3.js` — filtrování a rozbalování Service Wall, časová osa, propojení poptávky a podmíněné veřejné sekce.
+- `dist/content-data.js` — pět hlavních kategorií služeb podle soupisu majitele z 28. 10. 2026, jejich podkategorie, šest kroků, popisky etap a model pro realizace, partnery, články a návrhy interiérů. Veřejně se zobrazí jen položky se `status: 'published'`.
+- `dist/v3.js` — rozbalování kategorií Service Wall, časová osa, propojení poptávky a podmíněné veřejné sekce.
+- `dist/public/images/services/` — pět generovaných ilustračních fotografií jednotlivých oborů; nejde o skutečné zakázky MAKA-STAV.
 - `dist/scenes.js`, `room.css`, `app.js` — zachovaná ilustrace sedmi etap a ovládání pokoje.
 - `dist/references-data.js`, `references.js`, `references.css` — galerie před/po. Dvojice snímků jsou generované vizualizace, **nejde o zakázky MAKA-STAV**.
 - `tools/generate-content-pages.mjs` — generuje `/realizace/`, `/blog/`, kategorie a detaily pro schválené položky. Při změně dat spustit `node tools/generate-content-pages.mjs`.

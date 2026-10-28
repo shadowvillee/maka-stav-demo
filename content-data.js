@@ -1,39 +1,67 @@
 // One content source. Only status: 'published' may appear on the public site.
 window.MAKA_CONTENT = (() => {
-  const items = [
-    ['Rekonstrukce bytů','Rekonstrukce bytů a domů','home','Navazující práce od přípravy prostoru po dokončení interiéru.','Příprava prostoru|Rozvody a stavební úpravy|Povrchy a dokončení'],
-    ['Rekonstrukce domů','Rekonstrukce bytů a domů','home','Úpravy interiéru domu podle technického stavu a domluveného rozsahu.','Prohlídka a rozsah|Stavební úpravy|Dokončovací práce'],
-    ['Částečné rekonstrukce','Rekonstrukce bytů a domů','plan','Proměna vybraných místností nebo částí interiéru.','Návrh rozsahu|Úprava dispozice|Nové povrchy'],
-    ['Rekonstrukce koupelen','Koupelny','bath','Stavební a obkladačské práce při proměně koupelny.','Příprava prostoru|Hydroizolace|Obklady a montáž'],
-    ['Rekonstrukce bytových jader','Koupelny','bath','Nové řešení bytového jádra podle možností prostoru.','Demontáž|Příčky a rozvody|Obklady a vybavení'],
-    ['Bourací práce','Stavební práce','hammer','Příprava prostoru a odstranění vybraných konstrukcí.','Zajištění prostoru|Demontáž|Odvoz odpadu dle dohody'],
-    ['Zednické práce','Stavební práce','wall','Opravy a úpravy zdiva a navazujících stavebních částí.','Zdivo|Zapravení|Příprava povrchů'],
-    ['Příčky a úpravy dispozic','Stavební práce','plan','Úprava členění místností podle technického řešení.','Zaměření|Příprava konstrukce|Dokončení příčky'],
-    ['Sádrokartony','Stavební práce','wall','Příčky, podhledy a další konstrukce ze sádrokartonu.','Nosná konstrukce|Desky a tmelení|Příprava povrchu'],
-    ['Omítky a štuky','Stavební práce','wall','Sjednocení a vyhlazení stěn před finální úpravou.','Příprava podkladu|Omítání|Štukování'],
-    ['Obklady a dlažby','Koupelny','tiles','Pokládka obkladů a dlažeb v koupelně i dalších prostorech.','Příprava podkladu|Pokládka|Spárování'],
-    ['Elektroinstalace','Elektroinstalace','bolt','Rozvody a úpravy elektroinstalace v rámci rekonstrukce prostřednictvím odborné profese.','Návrh tras|Rozvody|Zapojení a kontrola odborníkem'],
-    ['Osvětlení a zásuvky','Elektroinstalace','light','Příprava světelných bodů a zásuvek podle budoucího využití prostoru.','Rozmístění|Příprava kabeláže|Montáž odborníkem'],
-    ['Vodoinstalace','Vodoinstalace','drop','Úpravy přívodů vody a odpadů při rekonstrukci prostřednictvím odborné profese.','Návrh vedení|Příprava rozvodů|Montáž a kontrola odborníkem'],
-    ['Sanitární vybavení','Vodoinstalace','drop','Osazení vybavení koupelny podle zvoleného řešení.','Výběr a příprava|Montáž|Dokončení'],
-    ['Malířské práce','Výmalby a podlahy','brush','Nová výmalba a finální vzhled stěn a stropů.','Příprava a zakrytí|Penetrace|Výmalba'],
-    ['Pokládka podlah','Výmalby a podlahy','floor','Pokládka podlahové krytiny podle typu prostoru a podkladu.','Příprava podkladu|Pokládka|Lišty'],
-    ['Vyrovnávání podlah','Výmalby a podlahy','floor','Příprava rovného a vhodného podkladu pro novou krytinu.','Posouzení podkladu|Vyrovnání|Kontrola'],
-    ['Montáž dveří a obložek','Stavební práce','door','Osazení dveří a obložek jako součást dokončení interiéru.','Zaměření|Příprava otvoru|Montáž'],
-    ['Drobné opravy a dokončení','Stavební práce','tools','Menší úpravy a poslední detaily po rekonstrukci.','Opravy|Zapravení|Dokončení detailů'],
-  ];
-  const serviceImages = {
-    'Rekonstrukce bytů a domů':'public/images/gallery-contact.jpg',
-    'Koupelny':'public/images/references/demo-bathroom-pair.jpg',
-    'Stavební práce':'public/images/gallery-contact.jpg',
-    'Elektroinstalace':'public/images/gallery-contact.jpg',
-    'Vodoinstalace':'public/images/gallery-contact.jpg',
-    'Výmalby a podlahy':'public/images/gallery-contact.jpg'
-  };
-  const services = items.map(([name,category,icon,description,work],index) => ({
-    id:`service-${index+1}`,name,category,icon,description,
-    work:work.split('|'),image:serviceImages[category],status:'published'
-  }));
+  // Owner-approved service groups (28 October 2026). Work items are nested under each group.
+  // Generated photographs illustrate the trade; they are not photographs of MAKA-STAV jobs.
+  const services = [
+    {
+      id:'elektroinstalace', name:'Elektroinstalační práce', icon:'bolt',
+      description:'Nové elektrické rozvody, světla i ovládací prvky v návaznosti na rekonstrukci. Součástí může být návrh LED osvětlení a potřebná revize.',
+      image:'public/images/services/elektroinstalace.jpg', imageAlt:'Ilustrační fotografie montáže stropního světla a vypínače',
+      work:[
+        ['Nové rozvody','Příprava a vedení elektrických okruhů podle využití prostoru.'],
+        ['Instalace osvětlení','Montáž svítidel a příprava světelných bodů.'],
+        ['Zásuvky a vypínače','Umístění a montáž podle domluveného řešení.'],
+        ['LED osvětlení a pásky','Návrh umístění a instalace včetně potřebného napájení.'],
+        ['Revize','Kontrola a revizní zpráva podle rozsahu provedených prací.']
+      ], status:'published'
+    },
+    {
+      id:'stavebni-prace', name:'Stavební práce', icon:'wall',
+      description:'Příprava prostoru, úpravy dispozic, povrchy a dokončení. Jednotlivé práce lze spojit do navazující rekonstrukce nebo poptat samostatně.',
+      image:'public/images/services/stavebni-prace.jpg', imageAlt:'Ilustrační fotografie pokládky obkladů při stavebních pracích',
+      work:[
+        ['Bourací a vyklízecí práce','Odstranění původních prvků a příprava prostoru na další práce.'],
+        ['Sádrokartony, příčky a dispozice','Nové konstrukce a změny členění interiéru podle technického řešení.'],
+        ['Obklady a dlažby','Příprava podkladu, pokládka a dokončení spár.'],
+        ['Omítky a štuky','Oprava a sjednocení povrchů stěn a stropů.'],
+        ['Montáž dveří a zárubní','Zaměření, osazení a dokončení dveřních otvorů.'],
+        ['Jádrové vrtání','Přesné průchody konstrukcemi pro navazující instalace.'],
+        ['Výmalby a stěrky','Příprava povrchů a finální úprava stěn.'],
+        ['Dokončovací práce','Zapravení detailů a dokončení prostoru před předáním.']
+      ], status:'published'
+    },
+    {
+      id:'vodoinstalace', name:'Vodoinstalace', icon:'drop',
+      description:'Nové rozvody vody a instalace sanitárního vybavení pro koupelny, kuchyně a další části interiéru.',
+      image:'public/images/services/vodoinstalace.jpg', imageAlt:'Ilustrační fotografie instalace vodovodního potrubí a sanity',
+      work:[
+        ['Nové rozvody','Příprava a montáž přívodů vody podle dispozice prostoru.'],
+        ['Sanita a vybavení','Osazení vybraných zařizovacích předmětů a jejich připojení.']
+      ], status:'published'
+    },
+    {
+      id:'podlaharske-prace', name:'Podlahářské práce', icon:'floor',
+      description:'Nové podlahy i obnova stávajících povrchů. Vhodný postup se odvíjí od typu krytiny a stavu podkladu.',
+      image:'public/images/services/podlaharske-prace.jpg', imageAlt:'Ilustrační fotografie pokládky dřevěné podlahy',
+      work:[
+        ['Pokládka podlah','Dřevěné, vinylové a laminátové krytiny podle prostoru a podkladu.'],
+        ['Parkety','Pokládka nebo úprava parketových podlah.'],
+        ['Renovace podlah','Obnova vhodných stávajících podlah podle jejich stavu.'],
+        ['Vyrovnání podkladů','Příprava rovného podkladu pro finální krytinu.']
+      ], status:'published'
+    },
+    {
+      id:'hromosvody', name:'Hromosvody', icon:'lightning',
+      description:'Řešení ochrany objektu před bleskem od návrhu přes dokumentaci a montáž po revizi.',
+      image:'public/images/services/hromosvody.jpg', imageAlt:'Ilustrační fotografie instalace ochranného vodiče na střeše',
+      work:[
+        ['Návrh řešení','Posouzení objektu a volba vhodného postupu.'],
+        ['Projektová dokumentace','Příprava podkladů pro navržený systém.'],
+        ['Realizace','Montáž hromosvodu podle schváleného řešení.'],
+        ['Revize','Kontrola provedení a potřebná revizní zpráva.']
+      ], status:'published'
+    }
+  ].map(service => ({...service, category:service.name}));
   const steps = [
     ['První setkání','Probereme vaše představy a podle potřeby si prohlédneme prostor. Seznámíme se s technickým stavem a navrhovanými úpravami.'],
     ['Návrh řešení','Společně upřesníme vhodný postup, rozsah prací a možnosti provedení. U rozsáhlejších projektů lze zapojit projektanta nebo interiérového designéra.'],
@@ -44,12 +72,12 @@ window.MAKA_CONTENT = (() => {
   ];
   const stages = [
     {work:['Bourací práce','Příprava prostoru','Úpravy příček','Zednické práce'],service:'Stavební práce'},
-    {work:['Elektrické rozvody','Vodoinstalace','Odpady','Příprava zásuvek'],service:'Elektroinstalace'},
+    {work:['Elektrické rozvody','Vodoinstalace','Odpady','Příprava zásuvek'],service:'Elektroinstalační práce'},
     {work:['Vyrovnání stěn','Štukování','Sádrokartony','Příprava povrchů'],service:'Stavební práce'},
-    {work:['Penetrace','Malířské práce','Dokončení stěn'],service:'Výmalby a podlahy'},
-    {work:['Stropní konstrukce','Příprava osvětlení','Montáž svítidel'],service:'Elektroinstalace'},
-    {work:['Příprava podkladů','Pokládka','Soklové lišty'],service:'Výmalby a podlahy'},
-    {work:['Dokončovací práce','Kontrola','Úklid','Předání'],service:'Rekonstrukce bytů a domů'}
+    {work:['Penetrace','Malířské práce','Dokončení stěn'],service:'Stavební práce'},
+    {work:['Stropní konstrukce','Příprava osvětlení','Montáž svítidel'],service:'Elektroinstalační práce'},
+    {work:['Příprava podkladů','Pokládka','Soklové lišty'],service:'Podlahářské práce'},
+    {work:['Dokončovací práce','Kontrola','Úklid','Předání'],service:'Stavební práce'}
   ];
   // Add verified customer media and metadata before setting status to published.
   const projects = [];

@@ -14,14 +14,12 @@
     drop:'M12 2c3 5 7 9 7 13a7 7 0 0 1-14 0c0-4 4-8 7-13z',
     brush:'M5 18h12v3H5zM8 18V5a3 3 0 0 1 6 0v13M14 8h5',
     floor:'M3 7 12 3l9 4-9 4-9-4zm0 5 9 4 9-4M3 17l9 4 9-4',
+    lightning:'M12 2v3m7 1-2 2M5 6l2 2M3 13h3m12 0h3M8 19l4-8h-3l5-7-1 7h3l-8 8z',
     door:'M5 3h14v18H5zM9 3v18M7 13h1',
     tools:'M4 20 17 7M14 4l6 6M5 5l4 4'
   };
   const icon = name => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${iconPaths[name] || iconPaths.tools}"/></svg>`;
-  const categories = ['Všechny služby','Rekonstrukce bytů a domů','Koupelny','Stavební práce','Elektroinstalace','Vodoinstalace','Výmalby a podlahy'];
-  const filters = $('#service-filters');
   const grid = $('#service-wall-grid');
-  let activeFilter = 'Všechny služby';
   let activeService = null;
 
   function columns() {
@@ -36,16 +34,18 @@
     panel.className = 'service-detail';
     panel.setAttribute('role','region');
     panel.setAttribute('aria-label',`Detail služby ${service.name}`);
-    panel.innerHTML = `<div class="service-detail-image" role="img" aria-label="Inspirativní podoba interiéru"></div><div class="service-detail-copy"><span class="detail-category"></span><h3></h3><p></p><ul></ul><a class="button button-primary" href="#poptavka">Poptat tuto službu ↗</a></div>`;
-    panel.querySelector('.detail-category').textContent = service.category;
+    panel.innerHTML = `<figure class="service-detail-image"><img decoding="async"><figcaption>Ilustrační snímek</figcaption></figure><div class="service-detail-copy"><span class="detail-category"></span><h3></h3><p></p><ul class="service-work-list"></ul><a class="button button-primary" href="#poptavka">Poptat tuto službu ↗</a></div>`;
+    panel.querySelector('.detail-category').textContent = `${service.work.length} ${[2,3,4].includes(service.work.length) ? 'oblasti' : 'oblastí'} v této kategorii`;
     panel.querySelector('h3').textContent = service.name;
     panel.querySelector('p').textContent = service.description;
-    panel.querySelector('ul').replaceChildren(...service.work.map(item => {
-      const li = document.createElement('li'); li.textContent = item; return li;
+    panel.querySelector('ul').replaceChildren(...service.work.map(([title,description]) => {
+      const li = document.createElement('li');
+      const strong = document.createElement('strong'); strong.textContent = title;
+      const span = document.createElement('span'); span.textContent = description;
+      li.append(strong,span); return li;
     }));
-    panel.querySelector('.service-detail-image').style.backgroundImage = `url('${service.image}')`;
-    panel.querySelector('.service-detail-image').style.backgroundSize = service.category === 'Koupelny' ? '200% auto' : '200% 200%';
-    panel.querySelector('.service-detail-image').style.backgroundPosition = 'right bottom';
+    panel.querySelector('img').src = service.image;
+    panel.querySelector('img').alt = service.imageAlt;
     panel.querySelector('a').dataset.inquiry = service.name;
     return panel;
   }
@@ -76,25 +76,18 @@
   }
   function renderServices() {
     activeService = null;
-    const visible = content.services.filter(s=>s.status==='published' && (activeFilter==='Všechny služby'||s.category===activeFilter));
+    const visible = content.services.filter(s=>s.status==='published');
     grid.replaceChildren(...visible.map(service => {
       const tile = document.createElement('button');
       tile.type='button'; tile.className='service-tile'; tile.dataset.id=service.id;
       tile.setAttribute('aria-expanded','false');
-      tile.innerHTML = `${icon(service.icon)}<span></span><b aria-hidden="true">↗</b>`;
+      tile.innerHTML = `${icon(service.icon)}<span></span><small></small><b aria-hidden="true">↗</b>`;
       tile.querySelector('span').textContent=service.name;
+      tile.querySelector('small').textContent=`${service.work.length} ${[2,3,4].includes(service.work.length) ? 'oblasti' : 'oblastí'}`;
       tile.addEventListener('click',()=>openService(service.id));
       return tile;
     }));
-    filters.querySelectorAll('button').forEach(button => {
-      const on=button.dataset.category===activeFilter;
-      button.setAttribute('aria-pressed',String(on));
-    });
   }
-  filters.replaceChildren(...categories.map(category => {
-    const button=document.createElement('button'); button.type='button'; button.textContent=category; button.dataset.category=category;
-    button.addEventListener('click',()=>{activeFilter=category;renderServices();}); return button;
-  }));
   renderServices();
   window.addEventListener('resize',positionDetail,{passive:true});
 
@@ -145,7 +138,8 @@
   renderStage(Number($('.room').dataset.stage)||0);
   $('#stage-service-link').addEventListener('click',event=>{
     const category=event.currentTarget.dataset.category;
-    if(categories.includes(category)){activeFilter=category;renderServices();}
+    const service=content.services.find(item=>item.name===category && item.status==='published');
+    if(service && activeService !== service.id)openService(service.id);
   });
 
   const form=$('#inquiry-form');
@@ -155,7 +149,7 @@
     if(originalOptions.includes(service.name))return;
     const option=document.createElement('option');option.value=service.name;option.textContent=service.name;serviceSelect.append(option);
   });
-  ['Interiérový design a vizualizace','Drobné opravy a dokončení'].forEach(name=>{
+  ['Kompletní rekonstrukce na klíč','Menší oprava','Interiérový design a vizualizace'].forEach(name=>{
     if([...serviceSelect.options].some(option=>option.value===name))return;
     const option=document.createElement('option');option.value=name;option.textContent=name;serviceSelect.append(option);
   });
