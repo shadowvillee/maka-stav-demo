@@ -10,9 +10,10 @@ Projekt je statický HTML/CSS/JS bez CMS a bez balíčků. Spuštění: `node se
 - `dist/public/images/services/` — pět generovaných ilustračních fotografií jednotlivých oborů; nejde o skutečné zakázky MAKA-STAV.
 - `dist/scenes.js`, `room.css`, `app.js` — zachovaná ilustrace sedmi etap a ovládání pokoje.
 - `dist/references-data.js`, `references.js`, `references.css` — galerie před/po. Dvojice snímků jsou generované vizualizace, **nejde o zakázky MAKA-STAV**.
-- `tools/generate-content-pages.mjs` — generuje `/realizace/`, `/blog/`, kategorie a detaily pro schválené položky. Při změně dat spustit `node tools/generate-content-pages.mjs`.
+- `tools/generate-content-pages.mjs` — generuje `/realizace/`, `/blog/`, kategorie a detaily pro zveřejněné položky. Při změně dat spustit `node tools/generate-content-pages.mjs`.
+- `dist/blog.css` — vzhled článků, přehledu Blogu a náhledů na homepage.
 
-Bez ověřených fotografií a článků nejsou realizace ani blog na homepage a v navigaci. Připravené podstránky mají `noindex` a neobsahují falešné karty. Stránka se generuje i bez obsahu, aby šlo zkontrolovat strukturu. Při přidání schváleného záznamu je potřeba dodat `slug`, kvalitní fotografie, ověřený popis a poté spustit generátor. Do produkční navigace lze tyto stránky zařadit až po kontrole obsahu.
+Bez ověřených fotografií nejsou realizace na homepage ani v navigaci. Blog nyní obsahuje tři praktické průvodce k plánování rekonstrukce a jednu faktickou aktualitu o změně přehledu služeb na webu. Články neuvádějí neověřené ceny ani stavebněprávní nebo normové požadavky. Jejich ilustrace nejsou fotografie zakázek MAKA-STAV. Celé demo včetně blogu zůstává `noindex`; před indexací na ostré doméně je vhodná redakční kontrola a doplnění vlastních zkušeností firmy.
 
 ## Formulář
 
@@ -20,8 +21,8 @@ Formulář nyní **neodesílá na server**: po validaci připraví e-mail v poš
 
 ## Vydání a SEO
 
-Demo obsahuje `noindex`, protože obsahuje vizualizace a rozpracované podstránky. `robots.txt` blokuje nedokončené podstránky; `sitemap.xml` je základ pro budoucí ostrou doménu. Před veřejnou indexací je potřeba přepnout canonical na finální doménu a upravit robots/sitemap. Telefon a e-mail byly ověřeny na původním webu 28. 10. 2026. Původní WordPress URL jsou zdokumentované v `docs/redirect-map.md`; přesměrování na jejich doméně nebyla nasazena.
+Demo obsahuje `noindex`, protože obsahuje vizualizace a předběžný redakční obsah. `robots.txt` blokuje blog a nedokončené realizace; `sitemap.xml` je základ pro budoucí ostrou doménu. Před veřejnou indexací je potřeba přepnout canonical na finální doménu a upravit robots/sitemap. Telefon a e-mail byly ověřeny na původním webu 28. 10. 2026. Původní WordPress URL jsou zdokumentované v `docs/redirect-map.md`; přesměrování na jejich doméně nebyla nasazena.
 
 ## Chybějící podklady
 
-Skutečné dvojice fotografií před/po, dokončené realizace, potvrzené profese a designoví partneři, jejich jména a loga, schválené články, další firemní údaje, backend formuláře a právní texty k osobním údajům. Nevkládat vymyšlené reference, statistiky ani partnerství.
+Skutečné dvojice fotografií před/po, dokončené realizace, potvrzené profese a designoví partneři, jejich jména a loga, firemní aktuality, redakční schválení a doplnění vlastní zkušenosti u tří průvodců, další firemní údaje, backend formuláře a právní texty k osobním údajům. Nevkládat vymyšlené reference, statistiky ani partnerství.

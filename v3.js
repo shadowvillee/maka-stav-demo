@@ -170,13 +170,19 @@
       const h=document.createElement('h3');h.textContent=project.title;a.append(img,h);return a;
     }));
   }
-  const articleList=published(content.articles);
+  const articleList=published(content.articles).sort((a,b)=>b.date.localeCompare(a.date));
   if(articleList.length){
     $('#blog-nav').hidden=false;
     $('#blog-preview').hidden=false;
     $('#published-articles').replaceChildren(...articleList.slice(0,3).map(article=>{
-      const a=document.createElement('a');a.href=`blog/${encodeURIComponent(article.slug)}/`;
-      const h=document.createElement('h3');h.textContent=article.title;a.append(h);return a;
+      const a=document.createElement('a');a.className='home-article';a.href=`blog/${encodeURIComponent(article.slug)}/`;
+      const img=document.createElement('img');img.src=article.image;img.alt=article.imageAlt;img.loading='lazy';
+      const body=document.createElement('div');
+      const meta=document.createElement('span');meta.textContent=`${article.category} · ${new Intl.DateTimeFormat('cs-CZ',{day:'numeric',month:'long',year:'numeric'}).format(new Date(`${article.date}T12:00:00Z`))}`;
+      const h=document.createElement('h3');h.textContent=article.title;
+      const excerpt=document.createElement('p');excerpt.textContent=article.excerpt;
+      const more=document.createElement('b');more.textContent='Číst článek →';
+      body.append(meta,h,excerpt,more);a.append(img,body);return a;
     }));
   }
   const blogButton=$('#blog-nav button');
