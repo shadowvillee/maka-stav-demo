@@ -71,14 +71,70 @@ window.MAKA_CONTENT = (() => {
     ['Dokončení a předání','Po dokončení prací společně zkontrolujeme výsledek a předáme hotový prostor v dohodnutém rozsahu.']
   ];
   const stages = [
-    {work:['Bourací práce','Příprava prostoru','Úpravy příček','Zednické práce'],service:'Stavební práce'},
-    {work:['Elektrické rozvody','Vodoinstalace','Odpady','Příprava zásuvek'],service:'Elektroinstalační práce'},
-    {work:['Vyrovnání stěn','Štukování','Sádrokartony','Příprava povrchů'],service:'Stavební práce'},
-    {work:['Penetrace','Malířské práce','Dokončení stěn'],service:'Stavební práce'},
-    {work:['Stropní konstrukce','Příprava osvětlení','Montáž svítidel'],service:'Elektroinstalační práce'},
-    {work:['Příprava podkladů','Pokládka','Soklové lišty'],service:'Podlahářské práce'},
-    {work:['Dokončovací práce','Kontrola','Úklid','Předání'],service:'Stavební práce'}
-  ];
+  {
+    "work": [
+      "Vyklizení a ochrana prostoru",
+      "Demontáže a bourací práce",
+      "Úprava příček podle projektu",
+      "Příprava na nové instalace"
+    ],
+    "service": "Stavební práce"
+  },
+  {
+    "work": [
+      "Příprava elektrických okruhů",
+      "Umístění zásuvek a vypínačů",
+      "Vedení potřebných instalací",
+      "Kontroly před zakrytím"
+    ],
+    "service": "Elektroinstalační práce"
+  },
+  {
+    "work": [
+      "Montáž konstrukcí",
+      "Dokončení příček",
+      "Příprava stropních prvků",
+      "Zakrytí vybraných instalací"
+    ],
+    "service": "Stavební práce"
+  },
+  {
+    "work": [
+      "Omítání a stěrkování",
+      "Vyrovnání povrchů",
+      "Příprava podkladů",
+      "Dokončení stavebních detailů"
+    ],
+    "service": "Stavební práce"
+  },
+  {
+    "work": [
+      "Penetrace a malířské práce",
+      "Dokončení stěn",
+      "Povrchové úpravy",
+      "Příprava na kompletaci"
+    ],
+    "service": "Stavební práce"
+  },
+  {
+    "work": [
+      "Pokládka podlah",
+      "Dokončení elektroinstalačních prvků",
+      "Montáž dveří a lišt",
+      "Finální instalační a montážní práce"
+    ],
+    "service": "Podlahářské práce"
+  },
+  {
+    "work": [
+      "Závěrečná kontrola",
+      "Dokončení detailů",
+      "Úklid prostoru",
+      "Předání dokončeného díla"
+    ],
+    "service": "Stavební práce"
+  }
+];
   // Add verified customer media and metadata before setting status to published.
   const projects = [];
   const partners = [];

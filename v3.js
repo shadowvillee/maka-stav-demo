@@ -130,9 +130,8 @@
     $('#stage-service-link').textContent=`Související služba: ${stage.service} →`;
     $('#stage-service-link').dataset.category=stage.service;
     const callouts=$('#room-callouts');
-    callouts.replaceChildren(...stage.work.slice(0,2).map((item,i)=>{
-      const span=document.createElement('span');span.textContent=item;span.className=`room-callout room-callout-${i+1}`;return span;
-    }));
+    const marks=[[[25,38,'Odhalené zdivo','Zdivo a otvory po demontážích.'],[50,86,'Hrubý podklad','Podklad před vyrovnáním.']],[[62,66,'Instalační krabice','Budoucí poloha zásuvek.'],[71,25,'Elektrické vedení','Okruhy vedené v připravených drážkách.']],[[54,13,'Stropní rošt','Nosná konstrukce budoucího podhledu.'],[89,45,'Konstrukce ostění','Příprava dokončení otvoru.']],[[68,41,'Omítky','Sjednocené a vyrovnané povrchy.'],[50,85,'Podklad podlahy','Příprava pro finální krytinu.']],[[66,41,'Výmalba','Finální neutrální odstín stěn.']],[[50,88,'Dřevěná krytina','Podlaha včetně soklových lišt.'],[88,52,'Dveře a obložky','Dokončený dveřní otvor.']],[[52,71,'Hotový interiér','Ilustrativní vybavení a textilie.'],[78,64,'Přírodní detaily','Zeleň a přírodní materiály.']]];
+    callouts.replaceChildren(...marks[index].map(([x,y,label,description],i)=>{const detail=document.createElement('details');detail.className='architecture-point';detail.style.left=x+'%';detail.style.top=y+'%';const summary=document.createElement('summary');summary.textContent=String(i+1);const labelText=document.createElement('span');labelText.textContent=label;summary.append(labelText);summary.setAttribute('aria-label',label);const text=document.createElement('p');text.textContent=label+' — '+description;detail.append(summary,text);return detail;}));
   }
   document.addEventListener('maka:stage',event=>renderStage(event.detail.index));
   renderStage(Number($('.room').dataset.stage)||0);

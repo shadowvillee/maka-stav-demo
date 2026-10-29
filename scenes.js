@@ -1,16 +1,52 @@
-/* Edit scene copy and transitions here. Add stages without changing the page structure. */
 window.MAKA_SCENES = [
-  { id: "construction", copy: "Všechno začíná přípravou prostoru. Bourací a stavební práce připraví základ pro novou podobu interiéru.", phase: "Hrubá stavba", start: 0, end: .14 },
-  { id: "installations", copy: "Připravíme potřebné rozvody vody, odpadů a elektřiny podle konkrétního projektu.", phase: "Instalace a rozvody", start: .14, end: .28 },
-  { id: "plaster", copy: "Stěny dostávají nový základ. Přichází na řadu omítky, štuky a další úpravy povrchů.", phase: "Omítky a povrchy", start: .28, end: .43 },
-  { id: "paint", copy: "Dokončujeme povrchy stěn a postupně se začíná ukazovat nový charakter místnosti.", phase: "Výmalba", start: .43, end: .57 },
-  { id: "ceiling", copy: "Podhledy a osvětlení doplňují funkčnost i atmosféru prostoru.", phase: "Strop a osvětlení", start: .57, end: .71 },
-  { id: "floor", copy: "Podklad a finální podlahová krytina dodávají místnosti sjednocený vzhled.", phase: "Podlahy", start: .71, end: .86 },
-  { id: "finished", copy: "Poslední úpravy jsou dokončené. Z původního prostoru vzniká nový domov.", phase: "Hotový interiér", start: .86, end: 1 }
+  {
+    "id": "phase-0",
+    "phase": "Příprava a hrubé práce",
+    "copy": "Vyklizený prostor, odhalené zdivo a připravené otvory tvoří základ nové místnosti.",
+    "start": 0,
+    "end": 0.14285714285714285
+  },
+  {
+    "id": "phase-1",
+    "phase": "Instalace a rozvody",
+    "copy": "Do připravených drážek přichází elektrické vedení. Polohy krabic vycházejí z budoucího využití místnosti.",
+    "start": 0.14285714285714285,
+    "end": 0.2857142857142857
+  },
+  {
+    "id": "phase-2",
+    "phase": "Konstrukce a stropy",
+    "copy": "Stropní rošt připravuje prostor pro podhled. Dokončují se konstrukce a zakrývají vybrané instalace.",
+    "start": 0.2857142857142857,
+    "end": 0.42857142857142855
+  },
+  {
+    "id": "phase-3",
+    "phase": "Omítky a podklady",
+    "copy": "Zdivo překrývají souvislé omítky. Začištěné ostění, strop a vyrovnaný podklad připravují prostor pro povrchy.",
+    "start": 0.42857142857142855,
+    "end": 0.5714285714285714
+  },
+  {
+    "id": "phase-4",
+    "phase": "Povrchy a výmalba",
+    "copy": "Hladké stěny dostávají teplý neutrální odstín. Drobné opravy výmalby mohou následovat i po montážích.",
+    "start": 0.5714285714285714,
+    "end": 0.7142857142857143
+  },
+  {
+    "id": "phase-5",
+    "phase": "Podlahy a kompletace",
+    "copy": "Dřevěná podlaha, lišty, dveře a svítidla propojují všechny dokončené části místnosti.",
+    "start": 0.7142857142857143,
+    "end": 0.8571428571428571
+  },
+  {
+    "id": "phase-6",
+    "phase": "Hotový interiér",
+    "copy": "Přírodní materiály, textilie a měkké světlo dotvářejí útulný domov. Vybavení je ilustrativní a rozsah se liší podle zakázky.",
+    "start": 0.8571428571428571,
+    "end": 1
+  }
 ];
-
-/* Add supplied images here when ready. Paths are optional until the real sequence arrives. */
-window.MAKA_FRAMES = Array.from({ length: 14 }, (_, index) => {
-  const id = `scene-${String(index + 1).padStart(2, "0")}`;
-  return { id, desktop: null, mobile: null, suggestedDesktop: `public/images/scenes/desktop/${id}.webp`, suggestedMobile: `public/images/scenes/mobile/${id}.webp`, status: "awaiting-owner-artwork" };
-});
+window.MAKA_FRAMES=[];

@@ -67,7 +67,7 @@
     if (!scene) return;
     title.textContent = scene.phase;
     copy.textContent = scene.copy;
-    kicker.textContent = `0${index + 1} / 0${scenes.length} · ${scene.phase}`;
+    kicker.textContent = `Etapa 0${index + 1} / 0${scenes.length}`;
     stageCount.textContent = `0${index + 1} / 0${scenes.length}`;
     document.querySelector('#mobile-stage-name').textContent = scene.phase;
     document.querySelector('#stage-panel').setAttribute('aria-labelledby', `stage-tab-${index + 1}`);
@@ -80,6 +80,7 @@
       bar.style.setProperty('--fill', i <= index ? '1' : '0');
     });
     room.dataset.stage = String(index);
+    if(!matchMedia('(prefers-reduced-motion: reduce)').matches){const panel=document.querySelector('#stage-panel');panel.getAnimations().forEach(a=>a.cancel());panel.animate([{opacity:.4,transform:'translateY(6px)'},{opacity:1,transform:'translateY(0)'}],{duration:450});}
     document.dispatchEvent(new CustomEvent('maka:stage', { detail: { index } }));
     const clamp = value => Math.max(0, Math.min(1, value));
     room.style.setProperty('--story-progress', Math.max(0, Math.min(1, p)));

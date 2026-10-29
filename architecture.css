@@ -1,0 +1,35 @@
+/* Shared, fixed geometry; only construction layers change. */
+#pribeh .story-layout{grid-template-columns:minmax(0,1.85fr) minmax(290px,1fr);gap:0;background:#252622;border:1px solid #55554c;border-radius:12px;overflow:hidden}
+#pribeh .story-visual{position:relative;min-height:0;border:0;border-radius:0;background:radial-gradient(ellipse at 48% 40%,#57574e,#292c28);aspect-ratio:1000/720;align-self:center;overflow:visible}
+#pribeh .room{position:relative;inset:auto;width:100%;height:100%;min-height:0;transform:none;perspective:none;filter:none;overflow:visible;background:none}
+#pribeh .room:after{display:none}
+.architecture{display:block;width:100%;height:100%;overflow:visible}
+.arch-layer{opacity:0;transition:opacity 550ms ease;pointer-events:none}
+.room[data-stage="1"] .arch-install,.room[data-stage="2"] .arch-install,.room[data-stage="2"] .arch-frame{opacity:1}
+.room:is([data-stage="3"],[data-stage="4"],[data-stage="5"],[data-stage="6"]) .arch-plaster{opacity:1}
+.room:is([data-stage="4"],[data-stage="5"],[data-stage="6"]) .arch-paint{opacity:1}
+.room:is([data-stage="5"],[data-stage="6"]) .arch-floor,.room[data-stage="6"] .arch-furnished{opacity:1}
+#pribeh .story-card{border:0;border-left:1px solid #55554c;border-radius:0;background:#20231f;padding:30px;min-height:490px;justify-content:flex-start}
+#pribeh .stage-kicker{font-size:14px;color:#dfab95;line-height:1.5;margin-bottom:16px}
+#pribeh .story-card h3{font-size:clamp(25px,2.3vw,34px);line-height:1.13}
+#pribeh .stage-work ul{grid-template-columns:1fr;gap:10px}
+#pribeh .stage-work li{font-size:15px;line-height:1.4}
+#pribeh .story-card>p:not(.stage-kicker){line-height:1.55;margin-bottom:22px}
+#pribeh .room-callouts{pointer-events:none;z-index:3}
+.architecture-point{position:absolute;pointer-events:auto;transform:translate(-50%,-50%);font:500 13px/1.4 var(--sans);color:#fff}
+.architecture-point summary{list-style:none;cursor:pointer;display:grid;place-items:center;width:28px;height:28px;background:#a7432f;border:2px solid #f4e4d3;border-radius:50%;box-shadow:0 2px 12px #0005}
+.architecture-point summary::-webkit-details-marker{display:none}
+.architecture-point summary span{display:none}
+@media(max-width:600px){#pribeh .architecture-point summary span{display:inline;margin-left:6px}}
+.architecture-point p{position:absolute;z-index:5;bottom:20px;left:-80px;width:190px;padding:12px;background:#252b24;border:1px solid #a18f7a;border-radius:5px;box-shadow:0 8px 20px #0004}
+#pribeh .stage-buttons{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));overflow:visible}
+#pribeh .stage-button{min-width:0;min-height:86px;padding:12px 9px;text-align:left;border:1px solid #5c5d52;border-radius:5px;background:#2c3029}
+#pribeh .stage-button-label{font-size:13px;line-height:1.3;white-space:normal}
+#pribeh .stage-button.is-active{background:#a74430;border-color:#da9e85;color:white}
+#pribeh .stage-button-no{font-size:14px;margin-bottom:8px}
+#pribeh :is(button,summary,a):focus-visible{outline:3px solid #f4cf96;outline-offset:4px}
+#pribeh .story-help{max-width:none;font-size:14px;line-height:1.5;color:#c7c8bd}
+@media(max-width:1000px){#pribeh .story-layout{grid-template-columns:1fr}#pribeh .story-card{min-height:0;border-left:0;border-top:1px solid #55554c}#pribeh .story-visual{width:100%}#pribeh .story-card h3{font-size:30px}#pribeh .stage-work ul{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){#pribeh .story-visual{aspect-ratio:1.2}#pribeh .architecture{position:absolute;inset:0;height:100%;object-fit:contain}#pribeh .room-callouts{position:relative;display:flex;gap:8px;padding:0 16px 18px;inset:auto}#pribeh .room{display:flex;flex-direction:column;padding-top:82%;height:auto}#pribeh .architecture{top:0;height:auto;width:100%}#pribeh .architecture-point{position:static;transform:none;flex:1}#pribeh .architecture-point summary{width:auto;height:auto;min-height:35px;border-radius:4px;font-size:12px;padding:5px}#pribeh .architecture-point p{position:static;width:auto;margin-bottom:0;padding:10px;font-size:13px}#pribeh .story-visual{aspect-ratio:auto}#pribeh .story-card{padding:24px 20px}#pribeh .stage-work ul{grid-template-columns:1fr}#pribeh .stage-buttons{grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}#pribeh .stage-button{padding:8px 0;text-align:center;min-height:44px}#pribeh .stage-button-label{display:none}#pribeh .stage-button-no{margin:0;font-size:15px}#pribeh .stage-current strong{font-size:14px}#pribeh .stage-arrow{min-width:44px}}
+@media(prefers-reduced-motion:reduce){#pribeh *{transition:none!important;animation:none!important}}
+@media(max-width:380px){#pribeh .stage-buttons{grid-template-columns:repeat(4,minmax(0,1fr))}}
