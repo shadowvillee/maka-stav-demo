@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /realizace/
 Disallow: /blog/
-Sitemap: https://maka-stav-demo-rekonstrukce.shadowville.chatgpt.site/sitemap.xml
+Sitemap: https://shadowvillee.github.io/maka-stav-demo/sitemap.xml

@@ -18,7 +18,8 @@
     door:'M5 3h14v18H5zM9 3v18M7 13h1',
     tools:'M4 20 17 7M14 4l6 6M5 5l4 4'
   };
-  const icon = name => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${iconPaths[name] || iconPaths.tools}"/></svg>`;
+  const categoryArt={bolt:0,wall:1,drop:2,floor:3,lightning:4};
+  const icon = name => name in categoryArt ? `<svg class="category-art" viewBox="${categoryArt[name]*434.4} 120 434.4 480" aria-hidden="true"><image href="public/images/service-icons.png" width="2172" height="724"/></svg>` : `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${iconPaths[name] || iconPaths.tools}"/></svg>`;
   const grid = $('#service-wall-grid');
   let activeService = null;
 

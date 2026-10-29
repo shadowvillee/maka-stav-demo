@@ -16,3 +16,5 @@
 @media(max-height:800px) and (min-width:750px){main{padding:16px 20px 18px}.app:not([data-phase="0"]) #step-content{padding:16px}.question-grid{row-gap:14px}.question-panel-head{padding-bottom:10px;margin-bottom:12px}}
 @media(max-width:749px){.scope-card span{font-size:13px}}@media(max-width:360px){.scope-card span{font-size:12px}}
 .extra-room-options button{min-height:44px;border:1px solid #e7d9c5;border-radius:5px}.extra-room-options button[aria-checked="true"]{border-color:#a84632;background:#f7e7d7;color:#a84632}
+
+.work-inspiration{width:100%;height:100%;max-height:210px;object-fit:contain;display:block}
