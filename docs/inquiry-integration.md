@@ -18,4 +18,6 @@ Endpoint přijímá multipart `project` (JSON) a opakované `files`. Kontroluje 
 
 ## Rozložení
 
-Šest fází, dynamické podkroky podle zvolených prací. Desktop zobrazuje nejvýše čtyři otázky, mobil dvě. Kontakt se na mobilu dělí na údaje a odeslání. Hlavička a spodní ovládání mají vlastní řádky; pouze hlavní obsah a dlouhý souhrn se mohou přirozeně posouvat. To zachovává dostupnost při velkém písmu či otevřené klávesnici. Skutečnou mobilní klávesnici je nutné ověřit na zařízení.
+Šest fází, dynamické podkroky podle zvolených prací. Desktop zobrazuje nejvýše šest otázek, mobil dvě. Kontakt se na mobilu dělí na údaje a odeslání. Hlavička a spodní ovládání mají vlastní řádky; pouze hlavní obsah a dlouhý souhrn se mohou přirozeně posouvat. To zachovává dostupnost při velkém písmu či otevřené klávesnici. Skutečnou mobilní klávesnici je nutné ověřit na zařízení.
+
+Aktuální vzhled a vícenásobné otázky verze 28 popisuje `docs/inquiry-reference-update.md`. Odpověď typu multi se přenáší jako pole povolených řetězců, odděleně u každé instance práce. Server tyto hodnoty kontroluje proti stejnému katalogu a pro e-mail je spojuje do čitelného textu.

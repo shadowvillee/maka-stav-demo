@@ -32,3 +32,7 @@ Skutečné dvojice fotografií před/po, dokončené realizace, potvrzené profe
 Samostatná stránka `/poptavka/` nahrazuje původní sedmietapovou animaci. Na homepage je pouze její krátká prezentace, jednoduchý formulář zůstává zachovaný. Zdroj aplikace: `poptavka/`; propojení CTA: `wizard-links.js`; serverová integrace: `server/`. Odesílání v demu není nakonfigurované a úspěch se nesimuluje.
 
 Spuštění serverových testů: `node --test tests/inquiry.test.mjs`. Viz `docs/inquiry-integration.md` a `docs/inquiry-qa.md`.
+
+### Vizuální aktualizace průvodce — verze 28
+
+Průvodce nyní používá podklady z původní PNG předlohy: dům, fotografické karty, checklist a kompaktní souhrn. Horní kroky jsou klikatelné; rozbalovací otázky podporují checkboxy i radio volby, termín má skutečný kalendář. Viz `docs/inquiry-reference-update.md` pro podklady, prompt a kontrolu.
