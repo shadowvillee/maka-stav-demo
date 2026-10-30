@@ -179,13 +179,4 @@
     }));
   }
 
-  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if('IntersectionObserver' in window&&!reduced){
-    const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
-      if(entry.isIntersecting){entry.target.classList.add('revealed');observer.unobserve(entry.target);}
-    }),{rootMargin:'0px 0px -40px 0px',threshold:.05});
-    document.querySelectorAll('.scope-grid article,.service-tile,.design-visual,.process-timeline button,.faq-list details').forEach((node,index)=>{
-      node.classList.add('reveal-ready');node.style.setProperty('--reveal-delay',`${Math.min(index%5,4)*65}ms`);observer.observe(node);
-    });
-  }
 })();
