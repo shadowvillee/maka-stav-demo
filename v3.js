@@ -35,8 +35,7 @@
     panel.className = 'service-detail';
     panel.setAttribute('role','region');
     panel.setAttribute('aria-label',`Detail služby ${service.name}`);
-    panel.innerHTML = `<figure class="service-detail-image"><img decoding="async"><figcaption>Ilustrační snímek</figcaption></figure><div class="service-detail-copy"><span class="detail-category"></span><h3></h3><p></p><ul class="service-work-list"></ul><a class="button button-primary" href="#poptavka">Poptat tuto službu ↗</a></div>`;
-    panel.querySelector('.detail-category').textContent = `${service.work.length} ${[2,3,4].includes(service.work.length) ? 'oblasti' : 'oblastí'} v této kategorii`;
+    panel.innerHTML = `<figure class="service-detail-image"><img decoding="async"><figcaption>Ilustrační snímek</figcaption></figure><div class="service-detail-copy"><h3></h3><p></p><ul class="service-work-list"></ul><a class="button button-primary" href="#poptavka">Poptat tuto službu ↗</a></div>`;
     panel.querySelector('h3').textContent = service.name;
     panel.querySelector('p').textContent = service.description;
     panel.querySelector('ul').replaceChildren(...service.work.map(([title,description]) => {
@@ -82,9 +81,8 @@
       const tile = document.createElement('button');
       tile.type='button'; tile.className='service-tile'; tile.dataset.id=service.id;
       tile.setAttribute('aria-expanded','false');
-      tile.innerHTML = `${icon(service.icon)}<span></span><small></small><b aria-hidden="true">↗</b>`;
+      tile.innerHTML = `${icon(service.icon)}<span></span><b aria-hidden="true">↗</b>`;
       tile.querySelector('span').textContent=service.name;
-      tile.querySelector('small').textContent=`${service.work.length} ${[2,3,4].includes(service.work.length) ? 'oblasti' : 'oblastí'}`;
       tile.addEventListener('click',()=>openService(service.id));
       return tile;
     }));
