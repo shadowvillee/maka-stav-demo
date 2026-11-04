@@ -6,7 +6,7 @@ window.MAKA_CONTENT = (() => {
     {
       id:'elektroinstalace', name:'Elektroinstalační práce', icon:'bolt',
       description:'Nové elektrické rozvody, světla i ovládací prvky v návaznosti na rekonstrukci. Součástí může být návrh LED osvětlení a potřebná revize.',
-      image:'public/images/services/elektroinstalace.jpg', imageAlt:'Ilustrační fotografie montáže stropního světla a vypínače',
+      image:'public/images/services/elektroinstalace.jpg', imageAlt:'fotografie montáže stropního světla a vypínače',
       work:[
         ['Nové rozvody','Příprava a vedení elektrických okruhů podle využití prostoru.'],
         ['Instalace osvětlení','Montáž svítidel a příprava světelných bodů.'],
@@ -18,7 +18,7 @@ window.MAKA_CONTENT = (() => {
     {
       id:'stavebni-prace', name:'Stavební práce', icon:'wall',
       description:'Příprava prostoru, úpravy dispozic, povrchy a dokončení. Jednotlivé práce lze spojit do navazující rekonstrukce nebo poptat samostatně.',
-      image:'public/images/services/stavebni-prace.jpg', imageAlt:'Ilustrační fotografie pokládky obkladů při stavebních pracích',
+      image:'public/images/services/stavebni-prace.jpg', imageAlt:'fotografie pokládky obkladů při stavebních pracích',
       work:[
         ['Bourací a vyklízecí práce','Odstranění původních prvků a příprava prostoru na další práce.'],
         ['Sádrokartony, příčky a dispozice','Nové konstrukce a změny členění interiéru podle technického řešení.'],
@@ -33,7 +33,7 @@ window.MAKA_CONTENT = (() => {
     {
       id:'vodoinstalace', name:'Vodoinstalace', icon:'drop',
       description:'Nové rozvody vody a instalace sanitárního vybavení pro koupelny, kuchyně a další části interiéru.',
-      image:'public/images/services/vodoinstalace.jpg', imageAlt:'Ilustrační fotografie instalace vodovodního potrubí a sanity',
+      image:'public/images/services/vodoinstalace.jpg', imageAlt:'fotografie instalace vodovodního potrubí a sanity',
       work:[
         ['Nové rozvody','Příprava a montáž přívodů vody podle dispozice prostoru.'],
         ['Sanita a vybavení','Osazení vybraných zařizovacích předmětů a jejich připojení.']
@@ -42,7 +42,7 @@ window.MAKA_CONTENT = (() => {
     {
       id:'podlaharske-prace', name:'Podlahářské práce', icon:'floor',
       description:'Nové podlahy i obnova stávajících povrchů. Vhodný postup se odvíjí od typu krytiny a stavu podkladu.',
-      image:'public/images/services/podlaharske-prace.jpg', imageAlt:'Ilustrační fotografie pokládky dřevěné podlahy',
+      image:'public/images/services/podlaharske-prace.jpg', imageAlt:'fotografie pokládky dřevěné podlahy',
       work:[
         ['Pokládka podlah','Dřevěné, vinylové a laminátové krytiny podle prostoru a podkladu.'],
         ['Parkety','Pokládka nebo úprava parketových podlah.'],
@@ -53,7 +53,7 @@ window.MAKA_CONTENT = (() => {
     {
       id:'hromosvody', name:'Hromosvody', icon:'lightning',
       description:'Řešení ochrany objektu před bleskem od návrhu přes dokumentaci a montáž po revizi.',
-      image:'public/images/services/hromosvody.jpg', imageAlt:'Ilustrační fotografie instalace ochranného vodiče na střeše',
+      image:'public/images/services/hromosvody.jpg', imageAlt:'fotografie instalace ochranného vodiče na střeše',
       work:[
         ['Návrh řešení','Posouzení objektu a volba vhodného postupu.'],
         ['Projektová dokumentace','Příprava podkladů pro navržený systém.'],
@@ -148,7 +148,7 @@ window.MAKA_CONTENT = (() => {
       seoDescription:'Přehled toho, co si ujasnit před rekonstrukcí bytu v Praze a jak připravit srozumitelnou poptávku pro stavební firmu.',
       category:'Rady a tipy',date:'2026-10-28',
       excerpt:'Seznam priorit, fotografie prostoru, rozsah prací a představa o termínu. Co připravit, aby první domluva měla konkrétní základ?',
-      image:'public/images/references/demo-living-pair.jpg',imageAlt:'Ilustrační vizualizace proměny obytného prostoru',
+      image:'public/images/references/demo-living-pair.jpg',imageAlt:'vizualizace proměny obytného prostoru',
       sections:[
         {heading:'Začněte tím, co má být po rekonstrukci jiné',paragraphs:['Sepište si místnosti a problémy, které chcete vyřešit. U každé položky rozlišujte, co je pro vás nezbytné a co by bylo příjemné, pokud to umožní rozpočet a stav bytu. Takový seznam pomůže při první prohlídce i při pozdějším rozhodování.','Přemýšlejte také o tom, jak prostor používáte dnes a jak ho chcete používat po úpravě. Někdo potřebuje více zásuvek, jiný úložný prostor nebo koupelnu, která se lépe udržuje. Výsledek se plánuje snáz, když je jasný důvod změny.']},
         {heading:'Připravte podklady k bytu',paragraphs:['Do první poptávky se hodí lokalita, přibližná velikost bytu, seznam dotčených místností a několik aktuálních fotografií. Máte-li půdorys nebo informace o předchozích úpravách, přiložte je také. Nevadí, pokud dokumentace není úplná; nejasnosti se dají upřesnit při prohlídce.','U staršího bytu nemusí být vše vidět před začátkem prací. Považujte proto první zadání za výchozí podklad pro domluvu, ne za definitivní technický projekt.']},
@@ -163,7 +163,7 @@ window.MAKA_CONTENT = (() => {
       seoDescription:'Praktický přehled otázek k dispozici, vybavení, rozvodům a povrchům před rekonstrukcí koupelny.',
       category:'Rady a tipy',date:'2026-10-27',
       excerpt:'Sprcha nebo vana, úložné místo, zásuvky, obklady a návaznost prací. Připravte si rozhodnutí, která ovlivní podobu nové koupelny.',
-      image:'public/images/services/vodoinstalace.jpg',imageAlt:'Ilustrační fotografie montáže rozvodů a sanitárního vybavení',
+      image:'public/images/services/vodoinstalace.jpg',imageAlt:'fotografie montáže rozvodů a sanitárního vybavení',
       sections:[
         {heading:'Jak má koupelna fungovat každý den',paragraphs:['Nejdřív si představte běžný provoz. Kolik lidí koupelnu používá, co potřebujete ukládat a kde by měl zůstat volný prostor? Rozhodnutí o sprše, vaně, umyvadle a úložných místech spolu souvisejí, proto je dobré řešit je jako celek.','Fotografie současné koupelny a jednoduchý náčrt s rozměry pomohou popsat, co vám dnes vyhovuje a co chcete změnit. Inspirativní snímky jsou užitečné, když ukazují konkrétní detail, který se vám líbí.']},
         {heading:'Rozvody, osvětlení a vybavení řešte společně',paragraphs:['Umístění zařizovacích předmětů ovlivňuje přípravu vodovodních rozvodů. Podobně je potřeba včas promyslet světla, vypínače a zásuvky. Konkrétní technické řešení má vždy vycházet z prostoru a posouzení příslušných odborníků.','Před zahájením je vhodné ujasnit, které prvky zůstávají na místě a které se mají přesunout. Předejdete tak zbytečnému vracení k již dokončeným částem.']},
@@ -178,7 +178,7 @@ window.MAKA_CONTENT = (() => {
       seoDescription:'Na co se ptát při výběru nové podlahy do bytu a proč je důležité posoudit i stav podkladu.',
       category:'Rady a tipy',date:'2026-10-26',
       excerpt:'Vzhled krytiny je jen jedna část rozhodnutí. Důležitý je způsob používání místnosti, stav podkladu i návaznost na dveře a další povrchy.',
-      image:'public/images/services/podlaharske-prace.jpg',imageAlt:'Ilustrační fotografie pokládky dřevěné podlahy',
+      image:'public/images/services/podlaharske-prace.jpg',imageAlt:'fotografie pokládky dřevěné podlahy',
       sections:[
         {heading:'Začněte místností, ne katalogem',paragraphs:['Podlaha v obývacím pokoji, chodbě nebo ložnici dostává jiné nároky podle toho, jak prostor používáte. Sepište si, co od nové krytiny čekáte: vzhled, pocit při chůzi, způsob údržby a návaznost na zbytek bytu. Až potom vybírejte konkrétní dekor.','Pokud sjednocujete více místností, promyslete přechody mezi nimi. Rozdílné výšky a dveřní otvory mohou ovlivnit výsledný detail stejně jako samotná krytina.']},
         {heading:'Dřevo, vinyl a laminát porovnávejte podle konkrétního výrobku',paragraphs:['Každá z těchto skupin nabízí různé podoby a konstrukce. Nelze proto rozhodnout jen podle názvu materiálu. Porovnejte vybraný výrobek, jeho doporučené použití, vzhled na větším vzorku a požadavky výrobce na pokládku a údržbu.','U dřevěné podlahy může být důležitá možnost budoucí obnovy povrchu, u jiných krytin zase zvolený systém pokládky. Nejlepší volba závisí na konkrétním prostoru a vašich prioritách.']},
@@ -193,7 +193,7 @@ window.MAKA_CONTENT = (() => {
       seoDescription:'Na webu MAKA-STAV je nyní přehled pěti hlavních kategorií prací a jejich konkrétního rozsahu.',
       category:'Aktuality',date:'2026-10-28',
       excerpt:'Služby jsme na webu uspořádali do pěti oblastí: elektroinstalační, stavební, vodoinstalační a podlahářské práce a hromosvody.',
-      image:'public/images/services/stavebni-prace.jpg',imageAlt:'Ilustrační fotografie stavebních prací v interiéru',
+      image:'public/images/services/stavebni-prace.jpg',imageAlt:'fotografie stavebních prací v interiéru',
       sections:[
         {heading:'Pět přehledných oblastí',paragraphs:['Přehled na webu nyní sdružuje elektroinstalační práce, stavební práce, vodoinstalaci, podlahářské práce a hromosvody. Po otevření kategorie uvidíte konkrétní činnosti, které do ní patří.','Cílem změny je usnadnit orientaci při menší opravě i při plánování větší rekonstrukce. Rozsah jednotlivé zakázky vždy upřesníme podle prostoru a vaší poptávky.']},
         {heading:'Kde začít',paragraphs:['Můžete projít přehled služeb nebo rovnou popsat svůj projekt v nezávazné poptávce. Pokud si nejste jistí, do které oblasti vaše zadání patří, zvolte v poptávce možnost „Potřebuji poradit“.']}

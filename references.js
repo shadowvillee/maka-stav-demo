@@ -71,7 +71,7 @@
     applyPhoto(comparison.querySelector('.comparison-before'), reference.beforeImage);
     applyPhoto(comparison.querySelector('.comparison-after'), reference.afterImage);
     comparison.classList.toggle('has-image-error', broken);
-    comparison.setAttribute('aria-label', `Porovnání před a po: ${reference.title}. ${reference.isDemo ? 'Demonstrační fotografie.' : ''}`);
+    comparison.setAttribute('aria-label', `Porovnání před a po: ${reference.title}. `);
     setSplit(50);
     renderPeek(previousPeek, index - 1, 'Předchozí ukázka');
     renderPeek(nextPeek, index + 1, 'Další ukázka');
@@ -135,7 +135,7 @@
     detailOpener = $('#reference-detail-open');
     $('#reference-dialog-title').textContent = detailReference.title;
     $('#reference-dialog-description').textContent = detailReference.isDemo
-      ? 'Vizualizace možného řešení. Nejde o doloženou realizaci MAKA-STAV.'
+      ? 'Vizualizace možného řešení.'
       : detailReference.description;
     detailThumbs.replaceChildren(...detailReference.galleryImages.map((photo, index) => {
       const thumb = document.createElement('button');
@@ -192,7 +192,7 @@
   if (references.some(reference => !reference.isDemo)) {
     $('#references-title').textContent = 'Ukázky realizací před a po';
     $('.references-heading .eyebrow').textContent = 'Reference';
-    if (references.every(reference => !reference.isDemo)) $('.references-disclaimer').hidden = true;
+    if (references.every(reference => !reference.isDemo)) $('.references-disclaimer')?.setAttribute('hidden','');
   }
   activateReference(0);
 })();
