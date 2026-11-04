@@ -81,7 +81,7 @@
       const tile = document.createElement('button');
       tile.type='button'; tile.className='service-tile'; tile.dataset.id=service.id;
       tile.setAttribute('aria-expanded','false');
-      tile.innerHTML = `${icon(service.icon)}<span></span><b aria-hidden="true">↗</b>`;
+      tile.innerHTML = `${icon(service.icon)}<span></span>`;
       tile.querySelector('span').textContent=service.name;
       tile.addEventListener('click',()=>openService(service.id));
       return tile;
@@ -170,13 +170,4 @@
   blogButton.addEventListener('click',()=>blogButton.setAttribute('aria-expanded',String(blogButton.getAttribute('aria-expanded')!=='true')));
   document.addEventListener('keydown',event=>{if(event.key==='Escape' && blogButton.getAttribute('aria-expanded')==='true'){blogButton.setAttribute('aria-expanded','false');blogButton.focus();}});
   document.addEventListener('click',event=>{if(!event.target.closest('#blog-nav'))blogButton.setAttribute('aria-expanded','false');});
-  const partnerList=published(content.partners).sort((a,b)=>(a.order||0)-(b.order||0));
-  if(partnerList.length){
-    $('#partner-logos').hidden=false;
-    $('#partner-logos > div').replaceChildren(...partnerList.map(partner=>{
-      const a=document.createElement('a');a.href=partner.url;a.rel='noopener noreferrer';a.target='_blank';a.setAttribute('aria-label',partner.name);
-      const img=document.createElement('img');img.src=partner.logo;img.alt=partner.name;img.loading='lazy';a.append(img);return a;
-    }));
-  }
-
 })();
