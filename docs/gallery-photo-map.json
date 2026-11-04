@@ -1,0 +1,263 @@
+{
+  "albums": 17,
+  "photos": 50,
+  "files": [
+    {
+      "original": "maka-stav.webp",
+      "path": "public/images/galerie/koupelna-mechove-zrcadlo-01.webp",
+      "album": "Koupelna s mechovým zrcadlem"
+    },
+    {
+      "original": "maka-stav-4.webp",
+      "path": "public/images/galerie/byt-seda-kuchyne-01.webp",
+      "album": "Byt se šedou kuchyní"
+    },
+    {
+      "original": "maka-stav-8.webp",
+      "path": "public/images/galerie/hvezdne-nebe-01.webp",
+      "album": "Hvězdné nebe v podhledu"
+    },
+    {
+      "original": "maka-stav-2.webp",
+      "path": "public/images/galerie/koupelna-rohova-vana-01.webp",
+      "album": "Koupelna s rohovou vanou"
+    },
+    {
+      "original": "maka-stav-5.webp",
+      "path": "public/images/galerie/byt-obyvaci-pokoj-01.webp",
+      "album": "Byt s útulným obývacím pokojem"
+    },
+    {
+      "original": "maka-stav-9.webp",
+      "path": "public/images/galerie/podhled-led-prubeh-01.webp",
+      "album": "LED podhled: od montáže po rozsvícení"
+    },
+    {
+      "original": "maka-stav-10.webp",
+      "path": "public/images/galerie/podhled-led-prubeh-02.webp",
+      "album": "LED podhled: od montáže po rozsvícení"
+    },
+    {
+      "original": "IMG_3835.jpg",
+      "path": "public/images/galerie/byt-neprime-svetlo-01.jpg",
+      "album": "Nepřímé světlo v bytě"
+    },
+    {
+      "original": "IMG_3836-1.jpg",
+      "path": "public/images/galerie/byt-neprime-svetlo-02.jpg",
+      "album": "Nepřímé světlo v bytě"
+    },
+    {
+      "original": "IMG_3837.webp",
+      "path": "public/images/galerie/byt-neprime-svetlo-03.webp",
+      "album": "Nepřímé světlo v bytě"
+    },
+    {
+      "original": "IMG_3838.webp",
+      "path": "public/images/galerie/byt-neprime-svetlo-04.webp",
+      "album": "Nepřímé světlo v bytě"
+    },
+    {
+      "original": "20210909_220235.jpg",
+      "path": "public/images/galerie/podkrovi-kruhova-svitidla-01.jpg",
+      "album": "Kruhová svítidla v podkroví"
+    },
+    {
+      "original": "received_171241341783202.jpeg",
+      "path": "public/images/galerie/podkrovi-kruhova-svitidla-02.jpeg",
+      "album": "Kruhová svítidla v podkroví"
+    },
+    {
+      "original": "received_280824183408787.jpeg",
+      "path": "public/images/galerie/podkrovi-kruhova-svitidla-03.jpeg",
+      "album": "Kruhová svítidla v podkroví"
+    },
+    {
+      "original": "received_537925017478469.jpeg",
+      "path": "public/images/galerie/podkrovi-kruhova-svitidla-04.jpeg",
+      "album": "Kruhová svítidla v podkroví"
+    },
+    {
+      "original": "received_188790129870587.jpeg",
+      "path": "public/images/galerie/podkrovi-kruhova-svitidla-05.jpeg",
+      "album": "Kruhová svítidla v podkroví"
+    },
+    {
+      "original": "received_983720899079459.jpeg",
+      "path": "public/images/galerie/podkrovi-kruhova-svitidla-06.jpeg",
+      "album": "Kruhová svítidla v podkroví"
+    },
+    {
+      "original": "received_2148899901917585.jpeg",
+      "path": "public/images/galerie/podkrovi-kruhova-svitidla-07.jpeg",
+      "album": "Kruhová svítidla v podkroví"
+    },
+    {
+      "original": "20251218_105945.jpg",
+      "path": "public/images/galerie/led-panely-01.jpg",
+      "album": "LED panely v interiéru"
+    },
+    {
+      "original": "20251022_181555.jpg",
+      "path": "public/images/galerie/led-panely-02.jpg",
+      "album": "LED panely v interiéru"
+    },
+    {
+      "original": "20251022_181536.jpg",
+      "path": "public/images/galerie/led-panely-03.jpg",
+      "album": "LED panely v interiéru"
+    },
+    {
+      "original": "20260514_120517.jpg",
+      "path": "public/images/galerie/loznice-jidelna-01.jpg",
+      "album": "Světlo v ložnici a jídelně"
+    },
+    {
+      "original": "20260514_120524.jpg",
+      "path": "public/images/galerie/loznice-jidelna-02.jpg",
+      "album": "Světlo v ložnici a jídelně"
+    },
+    {
+      "original": "20260514_120458.jpg",
+      "path": "public/images/galerie/loznice-jidelna-03.jpg",
+      "album": "Světlo v ložnici a jídelně"
+    },
+    {
+      "original": "20260514_120452.jpg",
+      "path": "public/images/galerie/loznice-jidelna-04.jpg",
+      "album": "Světlo v ložnici a jídelně"
+    },
+    {
+      "original": "20260514_120826.jpg",
+      "path": "public/images/galerie/loznice-jidelna-05.jpg",
+      "album": "Světlo v ložnici a jídelně"
+    },
+    {
+      "original": "20260514_120832.jpg",
+      "path": "public/images/galerie/loznice-jidelna-06.jpg",
+      "album": "Světlo v ložnici a jídelně"
+    },
+    {
+      "original": "20260514_090702.jpg",
+      "path": "public/images/galerie/loznice-jidelna-07.jpg",
+      "album": "Světlo v ložnici a jídelně"
+    },
+    {
+      "original": "20210116_104030.jpg",
+      "path": "public/images/galerie/kuchyne-zavesna-svitidla-01.jpg",
+      "album": "Závěsná svítidla nad kuchyňským ostrůvkem"
+    },
+    {
+      "original": "20210116_104717.jpg",
+      "path": "public/images/galerie/kuchyne-zavesna-svitidla-02.jpg",
+      "album": "Závěsná svítidla nad kuchyňským ostrůvkem"
+    },
+    {
+      "original": "IMG-20251023-WA0003.jpg",
+      "path": "public/images/galerie/kuchyne-zavesna-svitidla-03.jpg",
+      "album": "Závěsná svítidla nad kuchyňským ostrůvkem"
+    },
+    {
+      "original": "IMG-20260527-WA0009.jpg",
+      "path": "public/images/galerie/rgb-led-osvetleni-01.jpg",
+      "album": "Barevné a atmosférické LED osvětlení"
+    },
+    {
+      "original": "20250314_205423.jpg",
+      "path": "public/images/galerie/rgb-led-osvetleni-02.jpg",
+      "album": "Barevné a atmosférické LED osvětlení"
+    },
+    {
+      "original": "20250307_233421.jpg",
+      "path": "public/images/galerie/rgb-led-osvetleni-03.jpg",
+      "album": "Barevné a atmosférické LED osvětlení"
+    },
+    {
+      "original": "20210712_125254.jpg",
+      "path": "public/images/galerie/knihovna-kolejnice-01.jpg",
+      "album": "Kolejnicové osvětlení knihovny"
+    },
+    {
+      "original": "20210712_125345.jpg",
+      "path": "public/images/galerie/knihovna-kolejnice-02.jpg",
+      "album": "Kolejnicové osvětlení knihovny"
+    },
+    {
+      "original": "20210712_125335.jpg",
+      "path": "public/images/galerie/knihovna-kolejnice-03.jpg",
+      "album": "Kolejnicové osvětlení knihovny"
+    },
+    {
+      "original": "20210712_125313.jpg",
+      "path": "public/images/galerie/knihovna-kolejnice-04.jpg",
+      "album": "Kolejnicové osvětlení knihovny"
+    },
+    {
+      "original": "IMG_20220625_110724.jpg",
+      "path": "public/images/galerie/komercni-stropni-svitidla-01.jpg",
+      "album": "Stropní svítidla v komerčních prostorech"
+    },
+    {
+      "original": "IMG_20220628_144929.jpg",
+      "path": "public/images/galerie/komercni-stropni-svitidla-02.jpg",
+      "album": "Stropní svítidla v komerčních prostorech"
+    },
+    {
+      "original": "IMG_20220628_144925.jpg",
+      "path": "public/images/galerie/komercni-stropni-svitidla-03.jpg",
+      "album": "Stropní svítidla v komerčních prostorech"
+    },
+    {
+      "original": "IMG_20220629_100035.jpg",
+      "path": "public/images/galerie/komercni-stropni-svitidla-04.jpg",
+      "album": "Stropní svítidla v komerčních prostorech"
+    },
+    {
+      "original": "IMG_20220711_101330.jpg",
+      "path": "public/images/galerie/komercni-stropni-svitidla-05.jpg",
+      "album": "Stropní svítidla v komerčních prostorech"
+    },
+    {
+      "original": "IMG_20220711_160732.jpg",
+      "path": "public/images/galerie/komercni-stropni-svitidla-06.jpg",
+      "album": "Stropní svítidla v komerčních prostorech"
+    },
+    {
+      "original": "20210621_163810.jpg",
+      "path": "public/images/galerie/hala-linearni-svetla-01.jpg",
+      "album": "Lineární osvětlení haly"
+    },
+    {
+      "original": "20210621_163916.jpg",
+      "path": "public/images/galerie/hala-linearni-svetla-02.jpg",
+      "album": "Lineární osvětlení haly"
+    },
+    {
+      "original": "IMG_20220621_222108.jpg",
+      "path": "public/images/galerie/exterier-venkovni-osvetleni-01.jpg",
+      "album": "Venkovní osvětlení cest a zeleně"
+    },
+    {
+      "original": "IMG_20220621_221348.jpg",
+      "path": "public/images/galerie/exterier-venkovni-osvetleni-02.jpg",
+      "album": "Venkovní osvětlení cest a zeleně"
+    },
+    {
+      "original": "IMG_20220621_221157.jpg",
+      "path": "public/images/galerie/exterier-venkovni-osvetleni-03.jpg",
+      "album": "Venkovní osvětlení cest a zeleně"
+    },
+    {
+      "original": "20201202_131230.jpg",
+      "path": "public/images/galerie/prodejna-smerove-svetlo-01.jpg",
+      "album": "Směrové osvětlení prodejny"
+    }
+  ],
+  "notes": [
+    "IMG_3835.HEIC was omitted because IMG_3835.jpg contains the same view.",
+    "IMG_20210909_220749_930.webp repeats the collage in 20210909_220235.jpg.",
+    "Two HEIC photos were converted to WebP for browser compatibility.",
+    "The ZIP video is kept in the original ZIP and was not included in the photo gallery.",
+    "Albums describe visible subjects; no unprovided location, client or project date is assigned."
+  ]
+}
