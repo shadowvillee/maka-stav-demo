@@ -1,0 +1,23 @@
+.arrow-icon,
+.arrow-next::after {
+  display: inline-block;
+  flex: none;
+  width: 1.3em;
+  height: 1.3em;
+  vertical-align: -.29em;
+  background: currentColor;
+  mask: url('public/icons/arrow-right.svg') center / contain no-repeat;
+}
+
+.arrow-icon--diagonal {
+  mask-image: url('public/icons/arrow-up-right.svg');
+}
+
+.arrow-next::after {
+  content: '';
+  margin-inline-start: .35em;
+}
+
+.arrow-icon:only-child {
+  vertical-align: middle;
+}

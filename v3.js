@@ -35,7 +35,7 @@
     panel.className = 'service-detail';
     panel.setAttribute('role','region');
     panel.setAttribute('aria-label',`Detail služby ${service.name}`);
-    panel.innerHTML = `<figure class="service-detail-image"><img decoding="async"></figure><div class="service-detail-copy"><h3></h3><p></p><ul class="service-work-list"></ul><a class="button button-primary" href="#poptavka">Poptat tuto službu ↗</a></div>`;
+    panel.innerHTML = `<figure class="service-detail-image"><img decoding="async"></figure><div class="service-detail-copy"><h3></h3><p></p><ul class="service-work-list"></ul><a class="button button-primary" href="#poptavka">Poptat tuto službu</a></div>`;
     panel.querySelector('h3').textContent = service.name;
     panel.querySelector('p').textContent = service.description;
     panel.querySelector('ul').replaceChildren(...service.work.map(([title,description]) => {
@@ -162,7 +162,7 @@
       const meta=document.createElement('span');meta.textContent=`${article.category} · ${new Intl.DateTimeFormat('cs-CZ',{day:'numeric',month:'long',year:'numeric'}).format(new Date(`${article.date}T12:00:00Z`))}`;
       const h=document.createElement('h3');h.textContent=article.title;
       const excerpt=document.createElement('p');excerpt.textContent=article.excerpt;
-      const more=document.createElement('b');more.textContent='Číst článek →';
+      const more=document.createElement('b');more.textContent='Číst článek';
       body.append(meta,h,excerpt,more);a.append(img,body);return a;
     }));
   }

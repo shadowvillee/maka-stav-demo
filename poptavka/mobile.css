@@ -1,0 +1,150 @@
+/* Keep mobile disclosures in the same scroll area as their triggering field. */
+.app {
+  height: var(--keyboard-height, 100dvh);
+}
+
+.workspace {
+  grid-template-rows: minmax(0, 1fr);
+}
+
+.workspace main {
+  min-height: 0;
+}
+
+.app[data-phase="0"] main {
+  margin-block: 0;
+}
+
+.app > header,
+.progress,
+.app > footer {
+  padding-inline: max(12px, env(safe-area-inset-left)) max(12px, env(safe-area-inset-right));
+}
+
+@media (min-width: 750px) {
+  .app > header,
+  .progress,
+  .app > footer {
+    padding-inline: clamp(16px, 2.5vw, 44px);
+  }
+}
+
+@media (max-width: 749px) {
+  .app > header {
+    padding-top: max(6px, env(safe-area-inset-top));
+  }
+
+  .app > header .icon-button,
+  .app > header .quiet,
+  .work-chevron,
+  .mini-icon,
+  .room-extra > summary {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .workspace {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .choice-dropdown .choice-popover,
+  .room-extra .choice-popover,
+  .calendar-disclosure .reference-calendar {
+    position: static;
+    width: auto;
+    max-height: none;
+    margin-top: 6px;
+    box-shadow: none;
+    overflow: visible;
+  }
+
+  .choice-dropdown > summary,
+  .room-extra > summary,
+  .calendar-disclosure > summary,
+  .send-details > summary,
+  .optional-location > summary {
+    min-height: 44px;
+  }
+
+  .field input,
+  .field select,
+  .field textarea {
+    font-size: 16px;
+  }
+
+  .work-line > label,
+  .question-panel-head > div,
+  .summary-card-head > div {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  #mobile-summary .summary-card-head {
+    grid-template-columns: 40px minmax(0, 1fr) 44px 44px;
+  }
+
+  #mobile-summary .summary-photo {
+    width: 40px;
+    height: 42px;
+  }
+
+  .calendar-head button {
+    width: 44px;
+    height: 44px;
+  }
+
+  .calendar-grid > button {
+    height: 38px;
+  }
+
+  dialog {
+    width: min(calc(100% - 20px), 600px);
+    max-height: calc(100dvh - 24px);
+    padding: 14px;
+  }
+
+  .app.keyboard-open .progress {
+    display: none;
+  }
+}
+
+@media (max-width: 380px) {
+  .app-title {
+    display: none;
+  }
+
+  #summary-toggle {
+    margin-left: auto;
+  }
+
+  .reference-start {
+    grid-template-columns: minmax(0, 1fr) 88px;
+  }
+
+  .scope-card {
+    min-height: 92px;
+  }
+}
+
+@media (max-height: 480px) and (max-width: 900px) {
+  .reference-start {
+    display: none;
+  }
+
+  .app > header {
+    min-height: 52px;
+    padding-block: 4px;
+  }
+
+  .progress {
+    padding-block: 4px;
+  }
+
+  .phase-label {
+    margin-bottom: 0;
+  }
+
+  .app > footer {
+    padding-block: 5px max(5px, env(safe-area-inset-bottom));
+  }
+}

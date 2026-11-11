@@ -193,7 +193,7 @@ h3 { font-size: clamp(23px, 2.2vw, 30px); line-height: 1.17; }
   .story-visual, .story .room { min-height: 420px; }
   .story .stage-button-label { font-size: 14px; }
 }
-@media (max-width: 900px) {
+@media (max-width: 1023px) {
   :root { --header-h: 72px; }
   .menu-toggle { display: flex; flex-direction: column; justify-content: center; gap: 5px; width: 48px; height: 48px; padding: 12px; border: 1px solid var(--line); background: var(--paper); }
   .menu-toggle span { width: 22px; height: 2px; background: var(--ink); }
@@ -201,6 +201,8 @@ h3 { font-size: clamp(23px, 2.2vw, 30px); line-height: 1.17; }
   .main-nav.is-open { display: flex; }
   .main-nav > a:not(.nav-cta) { padding: 14px 0; font-size: 16px; border-bottom: 1px solid var(--line); }
   .nav-cta { margin: 17px 0 0; }
+}
+@media (max-width: 900px) {
   .hero-copy { grid-template-columns: 1fr 1fr; min-height: 0; gap: 28px; }
   .hero-visual { min-height: 420px; }
   .story-layout { grid-template-columns: 1fr; }
