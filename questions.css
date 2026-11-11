@@ -1,0 +1,46 @@
+.question-mark {
+  display: inline-block;
+  flex: none;
+  width: 1.2em;
+  height: 1.2em;
+  vertical-align: -.24em;
+  margin-inline-end: .28em;
+}
+
+.question-mark[hidden] {
+  display: none;
+}
+
+h1 > .question-mark,
+h2 > .question-mark {
+  width: .78em;
+  height: .78em;
+  vertical-align: -.03em;
+}
+
+.inline-link > .question-mark,
+.button > .question-mark,
+.faq-list summary > .question-mark,
+.scope-small > .question-mark {
+  margin-inline-end: 0;
+}
+
+.hero .inline-link:has(> .question-mark) {
+  gap: .4em;
+}
+
+.faq-list summary {
+  display: flex;
+  align-items: flex-start;
+  gap: .45em;
+}
+
+.faq-list summary > .question-mark {
+  margin-block-start: .07em;
+}
+
+.footer-main nav > a[href="#faq"] {
+  display: inline-flex;
+  align-items: center;
+  gap: .35em;
+}

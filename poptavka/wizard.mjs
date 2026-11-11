@@ -1,4 +1,4 @@
-import {scopeView,roomsView,workView,questionControl,summaryView,calendarView,answerText,displayDate,refIcon} from './reference-ui.mjs?revision=39';
+import {scopeView,roomsView,workView,questionControl,summaryView,calendarView,answerText,displayDate,refIcon} from './reference-ui.mjs?revision=40';
 import {buildCatalog,roomTypes,scopes,phases,relevantWorks,limits} from './catalog.mjs?revision=reference28';
 import {deliveryConfig} from './config.mjs';
 const $=s=>document.querySelector(s),uid=()=>crypto.randomUUID(),esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -21,7 +21,7 @@ function select(id,label,value,options){return `<label class="field">${esc(label
 function questionField(q,w){return questionControl(q,w);}
 function summaryHTML(editable=true){return summaryView({project,catalog,questions,editable});}
 function updateSummary(){const html=summaryHTML();$('#summary').innerHTML=html;$('#mobile-summary').innerHTML=html;$('#room-total').textContent=project.rooms.length;}
-function heading(title,help='',context=''){ $('#step-title').textContent=title;$('#step-help').textContent=help;$('#step-context').textContent=context||'VÁŠ PROJEKT, KROK ZA KROKEM';}
+function heading(title,help='',context=''){ $('#step-title-text').textContent=title;$('#step-title .question-mark').hidden=!title.endsWith('?');$('#step-help').textContent=help;$('#step-context').textContent=context||'VÁŠ PROJEKT, KROK ZA KROKEM';}
 function render(focus=true){
  const main = $('#main');
  const previousScroll = main.scrollTop;
