@@ -18,3 +18,122 @@
 .extra-room-options button{min-height:44px;border:1px solid #e7d9c5;border-radius:5px}.extra-room-options button[aria-checked="true"]{border-color:#a84632;background:#f7e7d7;color:#a84632}
 
 .work-inspiration{width:100%;height:100%;max-height:210px;object-fit:contain;display:block}
+
+/* Keep the three main choices and both alternatives in one desktop row. */
+.reference-scope {
+  max-width: 1060px;
+  margin-inline: auto;
+}
+
+.reference-scope .scope-card {
+  min-height: 82px;
+  padding: 10px 7px;
+}
+
+@media (min-width: 750px), (min-width: 600px) and (max-height: 480px) {
+  .reference-scope {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(170px, 1.1fr);
+    gap: 9px 12px;
+    padding: 12px 16px;
+  }
+
+  .reference-scope h2 {
+    grid-column: 1 / -1;
+    margin: 0;
+  }
+
+  .scope-primary {
+    gap: 10px;
+  }
+
+  .reference-scope .scope-card {
+    min-height: 88px;
+    gap: 5px;
+  }
+
+  .scope-card svg {
+    width: 33px;
+    height: 33px;
+  }
+
+  .scope-card span {
+    max-width: none;
+    font-size: 14px;
+  }
+
+  .scope-secondary {
+    grid-column: auto;
+    margin-top: 0;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: repeat(2, minmax(44px, auto));
+    gap: 6px;
+  }
+}
+
+@media (max-height: 680px) and (min-width: 750px) {
+  .reference-house {
+    width: min(100%, 265px);
+  }
+
+  .reference-start {
+    margin-bottom: 10px;
+  }
+
+  .start-process {
+    gap: 7px;
+  }
+}
+
+@media (max-height: 620px) and (max-width: 749px) {
+  .reference-start {
+    margin-bottom: 9px;
+  }
+
+  .start-copy p {
+    display: none;
+  }
+}
+
+@media (max-height: 650px) and (min-width: 750px) {
+  .reference-start {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .reference-house {
+    width: min(100%, 212px);
+  }
+
+  .start-copy ul,
+  .start-process {
+    display: none;
+  }
+}
+
+@media (max-height: 480px) {
+  .app[data-phase="0"] .workspace main {
+    padding-block: 6px;
+  }
+
+  .app[data-phase="0"] .step-heading {
+    margin-bottom: 8px;
+  }
+
+  .reference-scope {
+    padding-block: 8px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 749px) and (max-height: 480px) {
+  .app[data-phase="0"] .workspace main {
+    padding-block: 4px 0;
+  }
+
+  .reference-scope {
+    row-gap: 7px;
+  }
+
+  .scope-small {
+    min-height: 44px;
+  }
+}
