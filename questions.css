@@ -19,7 +19,6 @@ h2 > .question-mark {
 }
 
 .inline-link > .question-mark,
-.button > .question-mark,
 .faq-list summary > .question-mark,
 .scope-small > .question-mark {
   margin-inline-end: 0;
@@ -37,10 +36,4 @@ h2 > .question-mark {
 
 .faq-list summary > .question-mark {
   margin-block-start: .07em;
-}
-
-.footer-main nav > a[href="#faq"] {
-  display: inline-flex;
-  align-items: center;
-  gap: .35em;
 }
