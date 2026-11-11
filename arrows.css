@@ -1,23 +1,47 @@
-.arrow-icon,
-.arrow-next::after {
+.chevron,
+.chevron-next::after {
   display: inline-block;
   flex: none;
   width: 1.3em;
   height: 1.3em;
-  vertical-align: -.29em;
-  background: currentColor;
-  mask: url('public/icons/arrow-right.svg') center / contain no-repeat;
-}
-
-.arrow-icon--diagonal {
-  mask-image: url('public/icons/arrow-up-right.svg');
-}
-
-.arrow-next::after {
-  content: '';
-  margin-inline-start: .35em;
-}
-
-.arrow-icon:only-child {
   vertical-align: middle;
+  background: currentColor;
+  mask: url('public/icons/chevron-right.svg') center / contain no-repeat;
+}
+
+.chevron--left {
+  mask-image: url('public/icons/chevron-left.svg');
+}
+
+.chevron--down {
+  transform: rotate(90deg);
+}
+
+details[open] > summary .chevron--down {
+  transform: rotate(-90deg);
+}
+
+.chevron-next::after {
+  content: '';
+  margin-inline-start: .25em;
+}
+
+.comparison-handle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.comparison-handle .chevron {
+  width: 20px;
+  height: 20px;
+  margin-inline: -2px;
+}
+
+.reference-arrows .chevron,
+.reference-dialog-nav .chevron,
+.gallery-prev .chevron,
+.gallery-next .chevron {
+  width: 32px;
+  height: 32px;
 }
